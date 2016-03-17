@@ -173,7 +173,7 @@ now augmented with negation~(\verb+!+).
 We can make more complex boolean expressions by joining simple ones
 with the operators \emph{and} (\verb!&&!) and \emph{or} (\texttt{||}).  For example,
 we can express ``if x is a non-negative odd number'' as
-\verb+if (x >= 0 && x \% 2 == 1)+. We can express ``if the name begins
+\verb+if (x >= 0 && x % 2 == 1)+. We can express ``if the name begins
 with an A or an E'' as \texttt{if (name.substring(0,1) == "A" ||
   name.substring(0,1) == "E")}.  The rules for evaluating \emph{and}
 and \emph{or} are as follows:
@@ -277,7 +277,7 @@ Here is another variation:
 
 \VerbatimInput[frame=single,label=Example]{src/s3Example5.groovy}
 
-This one has the \texttt{print} line inside the loop, so it outputs the value
+This one has the \texttt{println} line inside the loop, so it outputs the value
 of \texttt{total} each time round the loop.  If you keyed in the numbers
 4, 5, 6, 7 and 8, then, instead of just getting the total (30) as the output,
 you would get 4, 9, 15, 22 and then 30.
