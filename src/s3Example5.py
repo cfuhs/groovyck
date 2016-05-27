@@ -1,6 +1,6 @@
+total = 0
 finished = False
 while not finished:
-    total = 0
     print('Please enter a number (end with 0):')
     s = input()
     num = int(s)
