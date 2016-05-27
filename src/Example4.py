@@ -1,0 +1,6 @@
+print('Please key in a word: ', end = '')
+word = input()
+print('The word was: ' + word)
+print('Now please key in another: ', end = '')
+word = input()
+print('And this one was: ' + word)

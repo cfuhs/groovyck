@@ -1,36 +1,42 @@
 \section{Variables, identifiers and expressions}
 
-In this section we will discuss integer variables, arithmetic expressions, 
-identifiers, comments, and string variables.
+In this section we will discuss integer numbers, arithmetic expressions, 
+identifiers, comments, and strings.
 
-\subsection{Integer variables}
+%\subsection{Integer variables}
+\subsection{Integer numbers}
 
-As well as variables of type \verb!String! we can have variables of
-type \verb!int!. We call them integer variables or just
-\emph{integers}. Integers can contain any\footnote{Actually, a computer's memory
-  is finite and therefore they put limits to the possible values for an
-  integer variable, but they are big enough for most programs.}
-integer value like~0,~-1,~-200, or~1966.
+As well as strings, we can also have integer numbers (often just
+\emph{integers}) as values: whole numbers.
+%Integers
+So variables can contain not only strings, but also any
+% \footnote{Actually, a computer's memory
+%   is finite and therefore they put limits to the possible values for an
+%   integer variable, but they are big enough for most programs.}
+integer value like~0,~-1,~-200, or~1966.\footnote{In contrast to many
+  other programming languages, Python does not have a limit to how
+  large an integer value can become.}
 
-We would declare an \verb!int! variable called \verb!i! as follows:
+% We would declare an \verb!int! variable called \verb!i! as follows:
+
+% \begin{Verbatim}
+%     int i
+% \end{Verbatim}
+
+We can assign an integer value, say, \verb!0!,
+to a variable, say, \verb!i!:
 
 \begin{Verbatim}
-    int i
+    i = 0
 \end{Verbatim}
 
-and also initialise it if we wanted to:
+% We can change the value of an integer with an assignment:
 
-\begin{Verbatim}
-    int i = 0
-\end{Verbatim}
+% \begin{Verbatim}
+%     i = 1
+% \end{Verbatim}
 
-We can change the value of an integer with an assignment:
-
-\begin{Verbatim}
-    i = 1
-\end{Verbatim}
-
-or, if we had two integers \verb!i! and \verb!j!:
+or, if we had two variables \verb!i! and \verb!j!, we could assign:
 
 \begin{Verbatim}
     i = j
@@ -49,62 +55,91 @@ which results in \verb.i. having the value 4.
 \label{sec:intstr}
 
 You have probably noticed that, when dealing with integer
-variables the symbol ``+'' represents addition of numbers, while --- as
-we saw in the last section --- when dealing with strings the same
+values the symbol ``\texttt{+}'' represents addition of numbers, while -- as
+we saw in the last section -- when dealing with strings the same
 symbol represents concatenation. Therefore, the statement
 
 \begin{Verbatim}
-    String str = "My name is " + "Inigo Montoya"
+    word = 'My name is ' + 'Inigo Montoya'
 \end{Verbatim}
 
-results in \verb+str+ having the value ``My name is Inigo Montoya'',
+results in \verb+word+ having the value `My name is Inigo Montoya',
 while the statement
 
 \begin{Verbatim}
-    int n = 10 + 7
+    n = 10 + 7
 \end{Verbatim}
 
 results in \verb+n+ having the value 17 (not 107). What happens if we
-mix integer and string variables when using ``+'' ? 
-In that case, Groovy converts the integers to strings and performs
-concatenation. For example, the small program
+mix integer values and string values when using ``\texttt{+}'', say in the
+following statement?
 
 \begin{Verbatim}
-    String str = "My name is " + "Inigo Montoya"
-    int n = 10 + 7
-    String text = str + " and I am " + n
-    println text
+    answer = 'Answer: ' + 42
+\end{Verbatim}
+
+In that case, Python will give us an error message similar to the
+following one:
+
+\begin{Verbatim}
+TypeError: cannot concatenate 'str' and 'int' objects
+\end{Verbatim}
+
+This means that Python does not know how to connect (``concatenate'')
+the string `Answer: '\ (Python uses the name ``str'' for the
+\emph{type} of strings) and the integer 42 (``int'').
+To clarify that we want to use ``\texttt{+}'' to concatenate two strings (and
+not to use ``\texttt{+}'' to add two values), we can convert the ``int'' value
+42 to the ``str'' value `42' with the command \verb!str()!:
+
+\begin{verbatim}
+    answer = 'Answer: ' + str(42)
+\end{verbatim}
+
+%  converts the integers to strings and performs
+% concatenation.
+% For example,
+Similarly, the small program
+
+\begin{Verbatim}
+    word = 'My name is ' + 'Inigo Montoya'
+    n = 10 + 7
+    text = word + ' and I am ' + str(n)
+    print(text)
 \end{Verbatim}
 
 will print on the screen ``My name is Inigo Montoya and I am 17''. It
 is important to know that the same symbol can be used for different
 things, but we will come to this later again; now let's go back to
-writing programs with a bit of maths in them using integer variables.
+writing programs with a bit of maths in them using integers.
 
 \subsection{Reading integers from the keyboard}
 \label{sec:intkeyboard}
 
 In the last section, we saw how we can read a string of characters
 from the keyboard, 
-using \verb+System.console().readLine()+. We can use the same command
+using \verb+input()+. We can use the same command
 to read a number\ldots but the computer will not know it is a number,
 it will think it is a string of characters. If we want to tell the
-computer that a sequence of characters \emph{is} a number, we need to convert it. 
+computer that a sequence of characters \emph{is} a number,
+we need to convert it.
+This is similar to the way we needed to tell the computer that we
+wanted to treat a number as a character string in the previous example.
 We can do this easily by \emph{parsing} it using the command
-\verb+Integer.parseInt()+: 
+\verb+int()+: 
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example1.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example1.py}
 
 When we parse a string that contains an integer we obtain an integer
 with the correct value. If we try to parse a string that is not an
-integer (for example, the word ``Tom'') the program will terminate with an error
+integer (for example, the word `Tom') the program will terminate with an error
 message on the screen. If we do not parse the string and use it as if
 it was an integer, the results will be unpredictable. This
 is a common source of errors in programs. You can check for yourself
-what happens if you do not parse the string in the former example
-e.g.\ what happens with this program:
+what happens if you do not parse the string in the former example,
+e.g., what happens with this program:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example1_noParsing.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example1_noParsing.py}
 
 Now, assuming that you read your integers and always remember to parse
 them, what maths can you do with them?
@@ -112,15 +147,17 @@ them, what maths can you do with them?
 \subsection{Operator precedence}
 \label{sec:prec}
 
-Groovy uses the following arithmetic operators (amongst others):
+Python uses the following arithmetic operators (amongst others):
+\bigskip
 
 \begin{tabular}{ll}
 \verb!+! & addition\\
 \verb!-! & subtraction\\
 \verb!*! & multiplication\\
-\verb!/! & division\\
+\verb!//! & division\\
 \verb!%! & modulo\\
 \end{tabular}
+\bigskip
 
 The last one is perhaps unfamiliar.  The result of \verb!x % y! (``x mod y'')
 is the remainder that you get after dividing the integer x by the integer y.
@@ -133,30 +170,38 @@ How does the computer evaluate an expression containing more than one
 operator? For example, given \verb!2 + 3 * 4!, does it do the
 addition first, thus getting \verb!5 * 4!, which comes to 20, or does
 it do the multiplication first, thus getting \verb!2 + 12!, which
-comes to 14?  Groovy, in common with other programming languages and
-with mathematical convention in general, gives precedence to *, / and
-\% over + and \verb!-!.  This means that, in the example, it does the
+comes to 14?  Python, in common with other programming languages and
+with mathematical convention in general, gives precedence to \verb!*!, \verb!//! and
+\verb!%! over \verb!+! and \verb!-!.  This means that, in the example, it does the
 multiplication first and gets 14.
 
 If the arithmetic operators are at the same level of precedence, it
 takes them left to right.  \verb!10 - 5 - 2! comes to 3, not 7.  You
 can always override the order of precedence by putting brackets into
-the expression; (2 + 3) * 4 comes to 20, and \verb!10 - (5 - 2)! comes
+the expression; \verb!(2 + 3) * 4! comes to 20, and \verb!10 - (5 - 2)! comes
 to 7.
 
 Some words of warning are needed about division. First, remember that
-\verb-int- variables can only store integer values. If you try to
-store the result of a division in an \verb-int- variable, you will
-store only the integer part and lose the decimal part. Try to
+integer values are whole numbers.
+So the result of a division with \verb-//- is
+only the integer part without the decimal part. Try to
 understand what the following program does:
+\pagebreak
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example.py}
 
 A computer would get into difficulty if it tried to divide by zero.
 Consequently, the system makes sure that it never does.
 If a program tries to get the computer to divide by zero, the program
 is unceremoniously terminated, usually with an error message on the
 screen.
+
+% You may also have wondered why we write \verb!//! instead of \verb!/!
+% for integer division in Python. The reason is that \verb!/! already
+% stands for an operation called ``floating point division''. This
+% operation does not cut off the decimal part of the result, but it will
+% still need to ``round'' the result because not all decimal numbers
+% (say, $1/3 = 0.333333...$) can be represented as a decimal fraction.
 
 \subsection*{Exercise A}
 
@@ -177,24 +222,23 @@ The names that the programmer invents are called \emph{identifiers}.  The
 rules for forming identifiers are that the first character can be a letter
 (upper or lower case, usually the latter) and subsequent characters
 can be letters or digits 
-or underscores.  (Actually the first character can be an underscore but
+or underscores.  (Actually the first character can be an underscore, but
 identifiers beginning with an underscore are often used by system programs
-and are best avoided.)  Other characters are not allowed.  Groovy is
+and are best avoided.)  Other characters are not allowed.  Python is
 case-sensitive, so \verb!Num!, for example, is a different identifier from
- \verb!num!.
+\verb!num!.
 
 The only other restriction is that you cannot use any of the language's keywords
-as an identifier.  You couldn't use \verb!int! as the name of a variable,
+as an identifier.  You couldn't use \verb!if! as the name of a variable,
 for example. There are many keywords but most of them are words that you
 are unlikely to choose. 
-Ones that you might accidentally hit upon are \texttt{break},
-\texttt{case}, \texttt{catch}, \texttt{class}, \texttt{const},
-\texttt{continue}, \texttt{double}, \texttt{final}, \texttt{finally},
-\texttt{float}, \texttt{import}, \texttt{long}, \texttt{new},
-\texttt{return}, \texttt{short}, \texttt{switch}, \texttt{this},
-\texttt{throw}  and \texttt{try}. You should also avoid 
+Ones that you might accidentally hit upon are
+\texttt{assert}, \texttt{break}, \texttt{class}, \texttt{continue},
+\texttt{def}, \texttt{del}, \texttt{except}, \texttt{finally},
+\texttt{global}, \texttt{import}, \texttt{pass}, \texttt{raise},
+\texttt{return}, \texttt{try} and \texttt{yield}. You should also avoid 
 using words which, though not technically keywords, have special significance
-in the language, such as \verb!println! and \verb!String!.
+in the language, such as \verb!int! and \verb!print!.
 
 Programmers often use very short names for variables, such as
 \verb!i!, \verb!n!, or 
@@ -205,7 +249,7 @@ function is not so obvious, \textbf{it should be given a name that
 gives a clue as to the role it plays in the program}.  If a variable is
 holding the total of a series of integers and another is holding the
 largest of a series of integers, for example, then call them \verb!total!
-and \verb!max! rather than \verb!x! and \verb!y!.
+and \verb!maxi! rather than \verb!x! and \verb!y!.
 
 The aim in programming is to write programs that are ``self-documenting'',
 meaning that a (human) reader can understand them without having to read
@@ -213,25 +257,25 @@ any supplementary documentation.  A good choice of identifiers helps to
 make a program self-documenting.
 
 Comments provide another way to help the human reader to understand a
-program.  Anything on a line after ``//'' is ignored by the compiler,
+program.  Anything on a line after ``\texttt{\#}'' is ignored by the interpreter,
 so you can use this to annotate your program.  You might summarise
 what a chunk of program is doing:
 
 \begin{Verbatim}
-    // sorts numbers into ascending order
+    # sorts numbers into ascending order
 \end{Verbatim}
 
 or explain the purpose of an obscure bit:
 
 \begin{Verbatim}
-    x = x * 100 / y   // x as percent of y
+    x = x * 100 // y   # x as percent of y
 \end{Verbatim}
 
 Comments should be few and helpful.  Do not clutter your programs with
 statements of the obvious such as:
 
 \begin{Verbatim}
-    num = num + 1   // add 1 to num
+    num = num + 1   # add 1 to num
 \end{Verbatim}
 
 Judicious use of comments can add greatly to a program's readability, but they
@@ -243,7 +287,7 @@ go with the program. At worst, the comments can become so out-of-date as
 to be positively misleading, as illustrated in this case: 
 
 \begin{verbatim}
-    num = num + 1  // decrease num
+    num = num + 1  # decrease num
 \end{verbatim}
 
 What is wrong here? Is the comment out of date? Is there a bug in the
@@ -255,62 +299,74 @@ things are done!
 \subsection*{Exercise B}
 
 Say for each of the following whether it is a valid identifier
-in Groovy and, if not, why not:
+in Python and, if not, why not:
 \begin{Verbatim}
-BBC, Groovy, y2k, Y2K, old, new, 3GL, a.out, 
+BBC, Python, y2k, Y2K, old, new, 3GL, a.out, 
 first-choice, 2nd_choice, third_choice
 \end{Verbatim}
 
-\subsection{A bit more on String variables}
+\subsection{A bit more on strings}
 
-We have done already many things with string variables: we have
+We have done already many things with strings: we have
 created them, printed them on the screen, even concatenated several of
 them together to get a longer value. But there are many other useful
 things we can do with strings.
 
 For example, if you want to know how long a string is, you can find
-out with the \verb!length()! 
-{\em method}\footnote{A method is a named sequence of instructions. We 
-{\em call} the method using its name in order to execute its instructions.
-We can call a method without knowing what instructions it consists of, so
-long as we know what it does.}. 
-If  \verb!str! is the string, then \verb!str.length()! gives its 
-length. Do not forget the dot or the brackets: methods are always 
-prefixed with a dot and followed by brackets\footnote{Now you can see that
-  console() and readLine() are also methods.} (sometimes empty,
-sometimes not). You could say, for example:
+out using the \emph{function} \verb!len()!.\footnote{A function
+in Python is a named sequence of instructions. We 
+\emph{call} the function using its name in order to execute its instructions.
+We can call a function without knowing what instructions it consists of, so
+long as we know what it does.}
+% {\em method}\footnote{A method is a named sequence of instructions. We 
+% {\em call} the method using its name in order to execute its instructions.
+% We can call a method without knowing what instructions it consists of, so
+% long as we know what it does.}. 
+% If  \verb!str! is the string, then \verb!str.length()! gives its 
+% length. Do not forget the dot or the brackets: methods are always 
+% prefixed with a dot and followed by brackets\footnote{Now you can see that
+%   console() and readLine() are also methods.} (sometimes empty,
+% sometimes not).
+You could say, for example:
 
 \begin{Verbatim}
-    print "Please enter some text: "
-    String str = System.console().readLine()
-    int len = str.length()
-    println "The string " + str + " has " + len + " characters."
+    print('Please enter some text: ', end = '')
+    word = input()
+    length = len(word)
+    print('The string ' + word + ' has ' + str(length) + ' characters.')
 \end{Verbatim}
 
-You can obtain a substring of a string with the \verb!substring! method.
-For example if the string \verb!s! has the value ``\verb!Silverdale!'', then
-\verb!s.substring(0,6)! will give you the first six letters, i.e., the string
-``\verb!Silver!''.  The first number in brackets after the \verb!substring!
+You can obtain a substring (or a ``slice'')
+of a string as in the %\verb!substring! method.
+following example:
+If the variable \verb!s! has the string value `\verb!Silverdale!', then
+\verb!s[0:6]! will give you the first six letters, i.e., the string
+`\verb!Silver!'.  The first number in square brackets
+after the string
 says where you want the substring to begin, and the second number says
-where you want it to end. \emph{Note that the initial character of the string
-is treated as being at position~0, not position~1}.  If you leave out the second number,
-you get the rest of the string.  For example, \verb!s.substring(6)! would
-give you ``\verb!dale!'', i.e., the tail end of the string beginning at
-character 6 ('d' is character 6, not 7, because the 'S' character is
-character 0). 
+where you want it to end (to be precise, the second number is the
+position of the first character that we \emph{don't} want in the
+substring). \emph{Note that the initial character of the string
+is treated as being at position~0, not position~1}.
+Similarly, \verb!s[2:6]! will give you the string \verb!lver!.
+
+If you leave out the second number, you get the rest of the string.
+For example, \verb!s[6:]! would give you `\verb!dale!', i.e., the
+tail end of the string beginning at character 6 ('d' is character 6,
+not 7, because the 'S' character is character 0).
 
 You can output substrings with \verb!print! or assign them to other
-strings or combine them with the ``+'' operator.  For example:
+strings or combine them with the ``\texttt{+}'' operator.  For example:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example2.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example2.py}
 
-will output ``soft ices''.
+will output `soft ices'.
 
 \subsection*{Exercise C}
 
 Say what the output of the following program fragment would be:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example3.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example3.py}
 
 Then run the program and see if you were right. 
 

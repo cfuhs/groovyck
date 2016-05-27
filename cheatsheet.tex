@@ -1,36 +1,48 @@
 
 %\begin{tabular}{@{\ttfamily}l l}
-\begin{tabular}{p{6cm}p{7cm}}
-// & Introduces a comment\\
-int i & Defines an integer variable called \texttt{i}\\
-int x, y & Defines integer variables called \texttt{x} and \texttt{y}\\
-boolean b & Defines a boolean variable called \texttt{b}\\
-String s & Defines a string variable called \texttt{s}\\
-int num = 0 & Defines and initialises an integer variable called \texttt{num}\\
-str = System.console().readLine() & Takes a string from the input
-(ignoring leading spaces) \\
-n = Integer.parseInt(str) & Parses the number in the variable
-\texttt{str} and puts its value into the variable \texttt{n} \\
-print num & Outputs the value of \texttt{num}\\
-println num & The same, but adding a return-of-line at the end\\
-print "The answer is " + x & Outputs "The answer is " followed by the value of \texttt{x}\\
-x = 99 & Assigns the value 99 to \texttt{x}\\
-+, -, *, /, \% & Arithmetic operators.  *, / and \% take precedence over + and -\\
-s.length() & Gives length of string \texttt{s}\\
-s.substring(x, y) & Gives substring of \texttt{s} starting with the \\
-                  & character at position x and ending with \\
-                  & the character at position y.\\
+\begin{tabular}{p{6cm}p{7.2cm}}
+\texttt{\#} & Introduces a comment\\
+% int i & Defines an integer variable called \texttt{i}\\
+% int x, y & Defines integer variables called \texttt{x} and \texttt{y}\\
+% boolean b & Defines a boolean variable called \texttt{b}\\
+% String s & Defines a string variable called \texttt{s}\\
+\texttt{num = 99} & Assigns the integer value 99 to a variable called \texttt{num}\\
+\texttt{word = input()} & Takes a string from the input and puts it
+into the variable \texttt{word} \\
+\texttt{n = int(word)} & Parses the number in the variable
+\texttt{word} and puts its integer value into the variable \texttt{n}
+\\
+\texttt{word = str(n)} & Converts the number in the variable
+\texttt{n} to its string representation and puts it into the variable \texttt{word} \\
+\texttt{print(word)} & Outputs the value of \texttt{word}\\
+\texttt{print(word, end = '')} & The same, but without the return-of-line at the end\\
+\texttt{print('The answer is ' + x)} & Outputs `The answer is ' followed by the string \texttt{x}\\
+%x = 99 & Assigns the value 99 to \texttt{x}\\
+\texttt{+}, \texttt{-}, \texttt{*}, \texttt{//}, \texttt{\%} & Arithmetic operators.  \texttt{*}, \texttt{//} and \texttt{\%} take precedence over \texttt{+} and \texttt{-}.\\
+\texttt{len(s)} & Gives length of string \texttt{s}\\
+\texttt{s[x:y]} & Gives substring of \texttt{s} starting with the \\
+                  & character at position \texttt{x} and ending with \\
+                  & the last character before position \texttt{y}.\\
                   & (The first character of the string is at \\ 
                   & position zero.)\\
-if (A) B else C   & If A is true, do B, else do C.\\
-(x == y)          & Tests whether \texttt{x} is equal to \texttt{y}.  Note double "="\\
+\\
+\verb!if A:!    & If \texttt{A} is True,\\
+\verb!    B!    & \quad do \texttt{B},\\
+\verb!else:!    & else\\
+\verb!    C!    & \quad do \texttt{C}.\\
+\\
+\texttt{x == y}          & Tests whether \texttt{x} is equal to
+\texttt{y}.  Note the double ``\texttt{=}''.\\
 \verb+!=+, \verb+>+, \verb+<+, \verb+>=+, \verb+<=+ 
                   & Not equal to, greater than, less than, etc.\\
-\{ & Used to bracket together separate \\ 
-\} & statements to make a block\\
-while (A) B & While A is true, do B.  B can be a block.\\
-true, false & The boolean values \texttt{true} and\texttt{ false}.\\
-\verb+!+, \verb+&&+, \verb+||+  & The boolean operators \emph{not}, \emph{and} and \emph{or}.\\
+% \{ & Used to bracket together separate \\ 
+% \} & statements to make a block\\
+\\
+\verb!while A:! & While \texttt{A} is True, do \texttt{B}. \texttt{B} can be a block\\
+\verb!    B!   &     with several statements.\\
+\\
+\verb!True!, \verb!False! & The boolean values \emph{True} and \emph{False}.\\
+\verb+not+, \verb+and+, \verb+or+  & The boolean operators \emph{not}, \emph{and} and \emph{or}.
 \end{tabular}
 \vspace*{5pt}
 

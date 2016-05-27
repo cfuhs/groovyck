@@ -2,42 +2,52 @@
 
 To write anything more than very straightforward programs we need some way
 of getting the computer to make choices.
-We do this in Groovy with the keyword \verb!if!.
+We do this in Python with the keyword \verb!if!.
 We can write, for example:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example4.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example4.py}
 
 When the computer executes this, it first sees whether the variable \verb!num!
 currently has the value 180 or not.  If it does, the computer displays
-its message; if it doesn't, the computer ignores the  \verb!println! line
+its message; if it doesn't, the computer ignores the  \verb!print! line
 and goes on to the next line.
 
 Note that the conditional expression (\verb!num == 180!) has to be
-in brackets, and that we use curly brackets to indicate what to do if
-the conditional expression is true. 
+followed by a colon (``\verb!:!''), and that
+we must put some additional space in front of the code that
+we want to execute if the conditional expression is true.
+This additional space is also called \emph{indent},
+and it tells Python that this code is ``inside'' the \texttt{if}
+statement. The usual number of spaces to add to the indent is 4.
+
+%  use curly brackets to indicate what to do if
+% the conditional expression is true. 
 
 Note also that, to test whether  \verb!num! has the value 180
-or not, we have to write \verb!if (num == 180)! and not \verb!if (num = 180)!.
-We have to remember to hit the ``='' key twice.
-This is a serious nuisance in Groovy, especially for beginners.
-It comes about because the language uses the ``='' operator for a different
+or not, we have to write \verb!if num == 180:! and not \verb!if num = 180:!.
+We have to remember to hit the ``\texttt{=}'' key twice.
+This can be a serious nuisance in Python, especially for beginners.
+It comes about because the language uses the ``\texttt{=}'' operator for a different
 purpose, namely assignment.  \verb!num = 180! does not mean ``\verb!num! is
 equal to 180'', it means ``Give the value 180 to  \verb!num!''.  You may feel
 that it is obvious that assignment is not what is intended in
-\verb!if (num = 180)!, but unfortunately that is
-how the computer will interpret it --- and will complain.
+\verb!if num = 180:!, but unfortunately that is
+how the computer will interpret it -- and will complain.
 You have been warned.
 
 The following program takes two numbers and displays a message if they happen
 to be the same:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example5.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example5.py}
+
+\pagebreak
 
 \subsection{Conditional expressions}
 \label{sec:cond-expr}
 
-Conditional expressions --- the kind that follow an \verb!if! ---
+Conditional expressions -- the kind that follow an \verb!if! --
 can be formed using the following operators:
+\medskip
 
 \begin{tabular}{ll}
 \verb+==+ &is equal to\\
@@ -47,16 +57,19 @@ can be formed using the following operators:
 \verb+>=+ & is greater than or equal to\\
 \verb+<=+ &is less than or equal to\\
 \end{tabular}
+\medskip
 
+% Conveniently, Python and Groovy use the same policy.
 When these operators are used with integers, their meaning is obvious,
 but they can also be used with strings.  Here their meaning corresponds
-to something like alphabetical order.  For instance, \verb!if (s < t)!,
+to something like alphabetical order (the order used for entries in a
+printed dictionary).  For instance, \verb!if s < t:!,
 where  \verb!s! and \verb!t! are strings, means ``If  \verb!s! comes before \verb!t!
 in alphabetical order''.  So it would be true if  \verb!s! had the value
-``\verb!Birkbeck!'' and \verb!t! had the value ``\verb!College!''.  All the
-upper-case letters come before the lower-case, so \verb!(s < t)! would
-still be true if  \verb!s! had the value ``\verb!Zebra!'' and \verb!t! had the
-value ``\verb!antelope!'' (upper-case 'Z' comes before lower-case 'a').
+`\verb!Birkbeck!' and \verb!t! had the value `\verb!College!'.  All the
+upper-case letters come before the lower-case, so \verb!s < t! would
+still be true if  \verb!s! had the value `\verb!Zebra!' and \verb!t! had the
+value `\verb!antelope!' (upper-case 'Z' comes before lower-case 'a').
 
 But what about strings that contain non-alphabetic characters?  Would
 \verb!s!  come before \verb!t! if \verb!s! had the value ``\verb!#+*!''
@@ -70,7 +83,7 @@ The UNICODE table tells us that the character '\#' comes before the
 character '\verb!$!', for instance.  The latest version of Unicode\footnote{The full list can be downloaded from many
 places, including Wikipedia
 (\texttt{http://en.wikipedia.org/wiki/List\_of\_Unicode\_characters}).}
-consists of a repertoire of more than 109,000 characters covering 93
+consists of a repertoire of more than 120,000 characters covering 129
 different scripts (including Latin, Cyrillic, Arabic, all the Japanese
 ones, and many more). Some points worth remembering are:
 
@@ -85,19 +98,23 @@ Letters come in the order you'd expect, from 'A' to 'Z' and from 'a' to 'z'.
 Numerals come before upper-case letters and upper-case letters come before lower-case.
 \end{itemize}
 
+\pagebreak
+
 \subsection*{Exercise A}
 
 Say, for each of the following pairs of strings, whether \verb!s < t! would be
 true or false, assuming that  \verb!s! had the value on the left and \verb!t!
 had the value on the right:
+\medskip
 
 \begin{tabular}{ll}
-\verb!"A"! & \verb!"9"!\\
-\verb!"Zurich"! & \verb!"acapulco"!\\
-\verb!"Abba"! & \verb!"ABBA"!\\
-\verb!"long_thing_with_a_$"! & \verb!"long_thing_with_a_&"!\\
-\verb!"King's College"! & \verb!"King Kong"!\\
+\verb!'A'! & \verb!'9'!\\
+\verb!'Zurich'! & \verb!'acapulco'!\\
+\verb!'Abba'! & \verb!'ABBA'!\\
+\verb!'long_thing_with_a_$'! & \verb!'long_thing_with_a_&'!\\
+\verb!'King@example.invalid'! & \verb!'King Kong'!\\
 \end{tabular}
+\medskip
 
 \subsection{Two-way branches (\texttt{if ... else})}
 \label{sec:two-way-branches}
@@ -105,18 +122,18 @@ had the value on the right:
 The following program fragment tells students whether they have passed
 their exam: 
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example6.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example6.py}
 
 What happens, in the case of this program, if a student's mark is
 less than 50?  The program does nothing.  This kind of \verb!if! statement is a
 one-way branch.  If the condition is true, we do something; if not, we do
 nothing.  But in this case
 this seems unsatisfactory.  If the exam mark is less than 50, we would like
-it to display ``I'm afraid you have failed.''  We could arrange this by
-including another test --- \verb!if (exammark < 50)!  --- or, better, we could
+it to display `Sorry, you have failed.'  We could arrange this by
+including another test -- \verb!if examMark < 50:!  -- or, better, we could
 do it by using the keyword \verb!else!, thus:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example7.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example7.py}
 
 The  \verb!else! turns a one-way branch into a two-way branch.  If the
 condition is true, do this; otherwise, do that.
@@ -144,36 +161,50 @@ condition is true, do this; otherwise, do that.
 % it clear to the compiler that both of these lines come under the  \verb!if!.
 % This is how we do it in Groovy:
 
-A note about the curly braces. The curly braces have the effect of
-grouping all the statements inside 
-them into a programming unit called a \emph{block}\footnote{A block
-  consisting only of one statement does not need curly
-  brackets. However, I recommend to use them always for
-  clarity.}. Look at this example: 
+%A note about the curly braces.
+A note about the indent (the spaces we put before the statements
+``inside'' the \texttt{if} statement). It has the effect of
+grouping all the statements with the same indentation level (the same
+amount of whitespace before them) into a programming unit called a
+\emph{block}.
+% \footnote{A block
+%   consisting only of one statement does not need curly
+%   brackets. However, I recommend to use them always for
+%   clarity.}.
+Look at this example: 
+\pagebreak
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example9.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example9.py}
 
 If the exam mark is greater than or equal to 50, 
 the whole of the block is executed and both
-lines ``A satisfactory result!'' and ``You may proceed with your
-project.'' will be printed.  If the mark is lower than 50, 
+lines `A satisfactory result!' and `You may proceed with your
+project.' will be printed.  If the mark is lower than 50, 
 the computer skips to
-the \verb!else! and executes the ``I'm afraid'' line.
+the \verb!else! and executes the `Sorry' line.
 
-You will find that different programmers, and different textbooks, have
-different ideas about the precise placement of the curly braces.  Some would
-set out the above fragment as:
+We can reduce the indent level again to tell Python where e.g.\
+the block inside the \verb!else! ends. We might add
+a line to the previous example to print a `Good bye.'\ message
+in all cases:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example10.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example9a.py}
 
-and there are other variations. Personally I prefer the first version
-because it is more compact but at the same time the structure of the
-program is very clear. 
+
+% You will find that different programmers, and different textbooks, have
+% different ideas about the precise placement of the curly braces.  Some would
+% set out the above fragment as:
+
+% \VerbatimInput[frame=single,label=Example]{src/s2Example10.groovy}
+
+% and there are other variations. Personally I prefer the first version
+% because it is more compact but at the same time the structure of the
+% program is very clear. 
 
 Suppose now that we wanted to give a different message to candidates who
 had done exceptionally well. Our first thought might be as follows:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example11.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example11.py}
 
 But this would not work quite right.  It's OK for candidates with
 marks below 70,
@@ -187,14 +218,15 @@ would give the following output:
     You may proceed with your project.
 \end{Verbatim}
 
-The problem is that if a mark is greater then or equal to~70, it is
+The problem is that if a mark is greater than or equal to~70, it is
 also greater than~50.  The first
 condition is true, so we get the ``exceptional'' part, but then the second
 condition is also true, so we get the ``satisfactory'' part.  We want to
 proceed to the greater than~50 test only if the mark is below~70.
-We need another \verb!else!:
+Here Python offers us the keyword \verb!elif!, which is short for
+``else if'' and which allows us to avoid excessive indentation:
 
-\VerbatimInput[frame=single,label=Example]{src/s2Example12.groovy}
+\VerbatimInput[frame=single,label=Example]{src/s2Example12.py}
 
 \subsection*{Exercise B}
 
@@ -206,17 +238,17 @@ whether or not their combined income makes them due for tax at the higher rate
 \subsection*{Exercise C}
 
 Extend the program about students' marks so that all the candidates
-get two lines of output, the unsuccessful ones getting ``I'm afraid you
-have failed.''\ and ``You may re-enter next year.''
+get two lines of output, the unsuccessful ones getting `Sorry, you
+have failed.'\ and `You may re-enter next year.'
 
 \subsection*{Exercise D}
 
 Write a program which takes two integers as input.
 If the first is exactly divisible
 by the second (such as 10 and 5 or 24 and 8, but not 10 and 3 or 24 and 7)
-it outputs ``Yes'', otherwise ``No'', except when the second
-is zero, in which case it outputs ``Cannot divide by zero''. Remember
-you can use the modulo operator (``\%'') to find out whether one
+it outputs `Yes', otherwise `No', except when the second
+is zero, in which case it outputs `Cannot divide by zero'. Remember
+you can use the modulo operator (``\texttt{\%}'') to find out whether one
 number is divisible by another. 
 
 \subsection*{Exercise E}

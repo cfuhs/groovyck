@@ -1,94 +1,92 @@
  
-You can download a free copy of the Groovy compiler and runtime environment 
+You can download a free copy of Python 
 from the web:
 
 \begin{verbatim}
-    http://groovy.codehaus.org/Download
+https://www.python.org/downloads/
 \end{verbatim}
 
-Groovy can run on any computer with Java installed, including the main
-operating systems like Windows, Linux, and Mac. If you do not have
-Java installed in your computer, you can install it from the web:
+It is important that you download version 3.\ldots, which is what we
+use in this introduction.
+Python is available for many
+operating systems, including Windows, Linux, and Mac.%  If you do not have
+% Java installed in your computer, you can install it from the web:
 
-\begin{verbatim}
-    http://www.java.com/en/download/index.jsp
-\end{verbatim}
+% \begin{verbatim}
+%     http://www.java.com/en/download/index.jsp
+% \end{verbatim}
 
-Java will be used intensively in several of the MSc courses 
+Python will be used intensively in several of the MSc courses 
 at Birkbeck, so it is a good idea to install it if you do not have it
 yet.
-
-If you do not know whether you have Java or Groovy installed in your
+If you do not know whether you have Python installed in your
 system, you can open a command prompt\footnote{You can find it in Windows in
-  ``Accessories''} and type\footnote{In some systems, you can type
-  ``-v'' instead of ``-version''.} \verb+java -version+ 
-or \verb+groovy -version+. 
-
-If they are installed, the result should be something similar to this:
+  ``Accessories''} and type
+% \footnote{In some systems, you can type
+%   ``-v'' instead of ``-version''.}
+\verb+python3 --version+.
+If Python is installed, the result should be something similar to this:
 
 \begin{verbatim}
-    > java -version
-    java version "1.6.0_23"
-    OpenJDK Runtime Environment (IcedTea6 1.11pre) (6b23~pre11-0ubuntu1.11.10.1)
-    OpenJDK Server VM (build 20.0-b11, mixed mode)
-
-    > groovy -version
-    Groovy Version: 1.7.10 JVM: 1.6.0_23
+    > python3 --version
+    Python 3.4.3
 \end{verbatim}
 
 
 
-\subsection*{Compiling and running Groovy programs}
+\subsection*{Running Python programs}
 
-The Groovy compiler is run from the command line.
+Python is run from the command line.
 
 You first type your program in a text editor. Notepad (in Windows) or
 gedit (in Linux) are good options, but any simple editor will
 do. Note: If you use a word-processor (like Microsoft Word or
 LibreOffice Writer), make sure you save the file as text.
 
-Give the filename a \texttt{.groovy} extension.
+Give the filename a \texttt{.py} extension.
 
 Open the command prompt. 
-Go to the folder where you have saved your Groovy
+Go to the folder where you have saved your Python
 program using the command ``cd'' (change directory). (You do not have to
 do this but it is easier if you do, otherwise you would have to type the full
-path for your source code file to compile it.)
+path for your source code file to run it.)
 
-Suppose your program is in a file called 
-\texttt{Myprog.groovy} in the current folder. 
-You can compile and run your program in one step by typing 
+Suppose your program is in a file called
+\texttt{Myprog.py} in the current folder.
+You can run your program by typing
 
 \begin{Verbatim}
-    groovy  Myprog.groovy
+    python3  Myprog.py
 \end{Verbatim}
 
-If the compilation is successful, you will see the result of your
+If the %compilation is successful,
+Python interpreter accepts your program,
+you will see the result of your
 program on the screen.
 %
-If there are compilation errors, you will get error messages and you need
+If there are errors, you will get error messages and you need
 to go back to the text editor, correct the program and save it again,
-then recompile it. 
+then try to run your program again.
 
 
 
-\subsection*{If you cannot install Groovy\ldots}
+\subsection*{If you cannot install Python\ldots}
 \label{sec:if-you-cannot}
 
-If you have problems installing Groovy, you may find this webpage useful:
+If you have problems installing Python, you may find this webpage useful:
 
 \begin{verbatim}
-   http://www.tutorialspoint.com/execute_groovy_online.php
+   https://repl.it/languages/python3
 \end{verbatim}
 
-The page provides you with an editor at the top and a console at the
-bottom. It will allow you to test your programs online. It is quite
+The page provides you with an editor on the left and a console on the
+right. It will allow you to test your programs online. It may be quite
 slow compared to using a local machine, but it may help if you find
-problems installing Groovy. 
+problems installing Python. 
 
-Additionally, if you have any problem installing or running Groovy,
-feel free to write to Dr.\ Sergio Gutierrez-Santos
-(sergut@dcs.bbk.ac.uk). We will come back to you as soon as possible.
+Additionally, if you have any problem installing or running Python,
+feel free to write to Dr.\ Carsten Fuhs
+(carsten@dcs.bbk.ac.uk). We will come back to you as soon as possible.
 
 %%% Local Variables:
 %%% TeX-master: "primer"

@@ -5,12 +5,15 @@
 To get a computer to do something, you have to tell it what you want it
 to do.  You give it a series of instructions in the form of a \emph{program}.
 You write a program in a \emph{programming language}.
-Many programming languages have been devised; well known ones include
+Many programming languages have been devised; well-known ones include
 Fortran, BASIC, Cobol, Algol, Lisp, Ada, C++, Python, Ruby, Scala, and Java.
 
-The language we will use in this document is named \emph{Groovy}, and
-it is \emph{very similar to the Java programming language but with a
-simplified syntax} that better fits the purposes of this introduction. 
+% The language we will use in this document is named \emph{Groovy}, and
+% it is \emph{very similar to the Java programming language but with a
+% simplified syntax} that better fits the purposes of this introduction. 
+
+The language we will use in this document is named \emph{Python}.
+More precisely, we are using version 3 of the Python language.
 
 Programming languages vary a lot, but
 an instruction in a typical programming language might contain
@@ -26,35 +29,36 @@ The following three lines are in BASIC, Cobol and C++ respectively:
 \end{Verbatim}
 
 Programs can vary in length from a few lines to thousands of lines.
-Here is a complete, short program written in Groovy:
+Here is a complete, short program written in Python:
 
-\VerbatimInput[frame=single,label=Example]{src/Example1.groovy}
+\VerbatimInput[frame=single,label=Example]{src/Example1.py}
 
 When you write a program, you have to be very careful to keep to the
 syntax of the programming language, i.e., to the grammar rules of the language.
-For example, the above Groovy program would
-behave incorrectly if in the 13$^{th}$ line we wrote 
+For example, the above Python program would
+behave incorrectly if in the 12$^{th}$ line we wrote
+\pagebreak
 
 \begin{Verbatim}
-	if (max = 0)
+    if maxi = 0:
 \end{Verbatim}
 
 instead of 
 
 \begin{Verbatim}
-	if (max == 0)
+    if maxi == 0:
 \end{Verbatim}
 
-or if in the 9$^{th}$ line we put a semi-colon immediately after 
+or if in the 9$^{th}$ line we omitted the colon in
 
 \begin{Verbatim}
-      if (s.length() > max)
+        if len(word) > maxi:
 \end{Verbatim}
 
-The computer would refuse to accept the program if we added dots or semi-colons 
+The computer would refuse to accept the program if we added dots or colons
 in strange places
-or if any of the parentheses (or curly braces) were missing, or if we wrote
-\verb!leng! instead of \verb!length()! or even \verb!Length()! instead of \verb!length()!.
+or if any of the parentheses (or colons) were missing, or if we wrote
+\verb!length! instead of \verb!len! or even \verb!Len! instead of \verb!len!.
 
 % Moved to earlier:
 % 
@@ -65,23 +69,25 @@ or if any of the parentheses (or curly braces) were missing, or if we wrote
 \subsection{Input and output}
 
 To get the computer to take some input and to store it
-in its memory, we write in Groovy:
+in its memory, we write in Python:
 
 \begin{Verbatim}
-      str = System.console().readLine()
+      word = input()
 \end{Verbatim}
 
-\verb!System.console().readLine()! (pronounced \emph{system dot
-  console dot read line}) is a phrase which has a special meaning to
+\verb!input()!
+% (pronounced \emph{system dot console dot read line})
+is a phrase which has a special meaning to
 the computer. The combination of these instructions
-means\footnote{More precisely, it means ``Take the current system
-  --- this computer, take its console --- its keyboard and screen,
-and read a line of character input from it as entered by the user'' (from the keyboard,
-not the screen because the user cannot type a line onto the screen... or
-could not before they invented touchscreens!).}
+means
+% \footnote{More precisely, it means ``Take the current system
+%   --- this computer, take its console --- its keyboard and screen,
+% and read a line of character input from it as entered by the user'' (from the keyboard,
+% not the screen because the user cannot type a line onto the screen... or
+% could not before they invented touchscreens!).}
 ``Take some input which is a sequence of characters and put it into the computer's memory.''
 
-\verb!str! by contrast, is a word that I (the programmer) have chosen.
+\verb!word! by contrast, is a word that I (the programmer) have chosen.
 I could have used \verb!characters! or \verb!thingy! or \verb!foodle!
 or just \verb!s! or almost any word I wanted. (There are some
 restrictions which I will deal with in the next section.)  
@@ -91,7 +97,7 @@ restrictions which I will deal with in the next section.)
 Computers can take in all sorts of things as input --- numbers,
 letters, words, records and so on --- but, to begin with, we will
 write programs that generally handle strings of characters (like
-"I", "hi", "My mother has 3 cats", or "This is AWESOME!").
+'I', 'hi', 'My mother has 3 cats', or 'This is AWESOME!').
 We'll also assume that the computer is taking its input from the
 keyboard, i.e., when the program is executed, you key in one or more
 words at the keyboard and these are the characters that the computer 
@@ -103,133 +109,164 @@ use by their programs and they refer to these boxes by giving
 them names.  
 
 \begin{Verbatim}
-      str = System.console().readLine()
+      word = input()
 \end{Verbatim}
 
 means ``Take a string of characters input using the keyboard and
 terminated when the user presses RETURN, and
-then put this string into the box called \verb!str!.''  When the program runs and
+then put this string into the box called \verb!word!.''  When the program runs and
 this instruction gets executed, the computer will take the words which
 you type at the keyboard (whatever you like) and will put them into
-the box which has the name \verb!str.!
+the box which has the name \verb!word!.
 
 Each of these boxes in the computer's memory can hold only one string at a time.  If a box is
-holding, say, ``hello'', and you put ``Good bye!'' into it, the
-``Good bye!'' replaces the ``hello''.  In computer parlance these
+holding, say, 'hello', and you put 'Good bye!'\ into it, the
+'Good bye!'\ replaces the 'hello'.  In computer parlance these
 boxes are called \emph{variables} because the content inside the box
-can vary; you can put an ``I'' in it to start with and later change it
-to a ``you'' and change it again to ``That was a hurricane'' and so on
+can vary; you can put an 'I' in it to start with and later change it
+to a 'you' and change it again to 'That was a hurricane' and so on
 as often as you want.
+Your program can have as many variables as you want.
 
-In Groovy, you have to tell the computer that you want to use a variable
-with a certain name before you use it.  You can't just pitch in using \verb!str!
-without telling the computer what \verb!str! is.  Most of the time you also have to
-tell the computer what {\em type} of variable this is, i.e., what sort of thing you are going
-to put into it. In this case we are going to put strings of characters into \verb!str!. 
-Strings of characters, or simply \emph{strings} as they are called in programming, are
-known in Groovy as \verb!String!, with capital S.  To tell the computer that we want to use a
-variable of type \verb!String! called \verb!str!, we write in our program:
 
-\begin{Verbatim}
-      String str
-\end{Verbatim}
+% In Groovy, you have to tell the computer that you want to use a variable
+% with a certain name before you use it.  You can't just pitch in using \verb!word!
+% without telling the computer what \verb!word! is.
+%   Most of the time you also have to
+% tell the computer what {\em type} of variable this is, i.e., what sort of thing you are going
+% to put into it. In this case we are going to put strings of characters into \verb!word!. 
+% Strings of characters, or simply \emph{strings} as they are called in programming, are
+% known in Groovy as \verb!String!, with capital S.  To tell the computer that we want to use a
+% variable of type \verb!String! called \verb!str!, we write in our program:
+%
+% \begin{Verbatim}
+%       String str
+% \end{Verbatim}
+%
+% If we wanted to declare more than one variable, we could use two lines:
+%
+% \begin{Verbatim}
+%       String myName
+%       String yourName
+% \end{Verbatim}
+%
+% or we could declare them both on one line, separated by a comma:
+% \begin{Verbatim}
+%       String myName, yourName
+% \end{Verbatim}
+%
+In Python (and many other programming languages), you have to make sure
+that you have put something into a variable before you read from it,
+e.g., to print its contents. If you try to take something out of a box
+into which you have not yet put anything, it is not clear what that
+``something'' should be. This is why Python will complain if you write
+a program that reads from a variable into which nothing has yet been put.
 
-If we wanted to declare more than one variable, we could use two lines:
 
-\begin{Verbatim}
-      String myName
-      String yourName
-\end{Verbatim}
-
-or we could declare them both on one line, separated by a comma:
-\begin{Verbatim}
-      String myName, yourName
-\end{Verbatim}
-
-Your program can have as many variables as you want.  In Groovy you don't
-have to declare all your variables at the start of the program, as is the
-case in some other languages.  You can declare them in the middle of a
-program, but you mustn't try to use a variable before you've declared it.
+%   In Groovy you don't
+% have to declare all your variables at the start of the program, as is the
+% case in some other languages.  You can declare them in the middle of a
+% program, but you mustn't try to use a variable before you've declared it.
 
 If you want the computer to display (on the screen) the contents of one of
-its boxes, you use \verb!print! followed by the name
-of the box.  For example, we can print the contents of \verb!str! by writing:
+its boxes, you use \verb!print(foo)! where instead of \verb!foo!
+you write the name of the box.  For example, we can print the contents of
+\verb!word! by writing:
 
 \begin{Verbatim}
-      print str
+      print(word)
 \end{Verbatim}
 
-If the contents of the box called \verb!str! happened to be ``Karl'', then when the
-computer came to execute the instruction \verb!print str! the word ``Karl'' would appear
+If the contents of the box called \verb!word! happened to be 'Karl', then when the
+computer came to execute the instruction \verb!print(word)! the word 'Karl' would appear
 on the screen.  
+
+
 
 % Arithmetic expressions such as \verb!num + 5! can also appear in a \verb!print!
 % line.  For example, if \verb!num! had the value 7, then \verb!print num + 5!
 % would output 12.
-If we use \verb!println! instead of \verb!print! then an extra line is
-printed after the value. 
-
-So we can now write a program in Groovy (not a very exciting program,
+So we can now write a program in Python (not a very exciting program,
 but it's a start):
 
-\VerbatimInput[frame=single,label=Example]{src/Example2.groovy}
+\VerbatimInput[frame=single,label=Example]{src/Example2.py}
 
 This program takes some text as input from the keyboard and displays it
 back on the screen.
 
-It is customary to lay out programs like this with each instruction on a line 
-of its own. The indentation, if there is any, is just for the benefit
-of human readers, not for the computer which ignores any indentations. 
+In many programming languages it is customary to lay out programs like this
+or in our first example with each instruction on a line of its own.
+In these languages, the indentation, if there is any, is just for the benefit
+of human readers, not for the computer which ignores any indentations.
 
-\subsection{Compiling and running a program}
+Python goes a step further and uses indentation as a part of the language
+to structure the programs. We will see more about this a bit later.
 
-You can learn the rudiments of Groovy from these notes just by doing the
+\subsection{Running a program}
+
+You can learn the rudiments of Python from these notes just by doing the
 exercises with pencil and paper.  It is not essential to run your programs
 on a computer.  However, if you have a computer and are wondering how
 you run the programs, you will need to know the following, and, even if you don't have
 a computer, it will help if you have some idea of how it's done.
 
 First of all you type your program into the computer using a text
-editor. Then, 
-before you can run the program, you have to \emph{compile} it.  This means that
-you pass it through a piece
-of software called a \emph{compiler}.  The compiler checks whether your program
-is acceptable according to the syntax of Groovy.  If it isn't, the compiler
-issues one or more error messages telling you
+editor.
+Then, to run your program, you use a piece of software called
+an \emph{interpreter}.
+The interpreter first checks whether your program is acceptable according
+to the syntax of Python and then runs it.
+If it isn't acceptable according to the syntax of Python,
+the interpreter issues one or more error messages telling you
 what it objects to in your program and where the problem lies.
 You try to see what the problem is, correct it and try again.  You keep
-doing this until the program compiles successfully.  You now have an
-{\em executable} version of your program, i.e., your program has been translated
-into the internal machine instructions of the computer and the computer
-can run your program.
+doing this until the interpreter runs your program without further
+objections.
+%  Then, 
+% before you can run the program, you have to \emph{compile} it.  This means that
+% you pass it through a piece
+% of software called a \emph{compiler}.  The compiler checks whether your program
+% is acceptable according to the syntax of Groovy.  If it isn't, the compiler
+% issues one or more error messages telling you
+% what it objects to in your program and where the problem lies.
+% You try to see what the problem is, correct it and try again.  You keep
+% doing this until the program compiles successfully.  You now have an
+% {\em executable} version of your program, i.e., your program has been translated
+% into the internal machine instructions of the computer and the computer
+% can run your program.
 
-Now you issue a command and the computer executes
-your program. You can issue commands\footnote{In
+To make the computer run your program using the interpreter, you need to
+issue a command. You can issue commands\footnote{In
     a modern operating system, you can click on an icon to execute a
     program. However, this only makes sense for graphical applications
     and not for the simple programs that you will write at first.}
 from the command prompt in Windows (you can find the command prompt under 
 \emph{Start $\rightarrow$
     Accessories}), or from the terminal in Linux and Mac OS/X.
+
+
 If you are lucky, your program does what you expect it 
 to do first time.  Often it doesn't.  You look at what your program is
 doing, look again at your program and try to see why it is not doing what
-you intended.  You correct the program, recompile and run it again.
+you intended.  You correct the program and run it again.
 You might have to do this many times before the program behaves in the way
 you wanted.
 
 As I said earlier, you can study this introduction without running your
 programs on a computer.  However, it's possible that you have a PC with
-a Groovy compiler and will try to run some of the programs given in these
+a Python interpreter and will try to run some of the programs given in these
 notes. 
-If you have a PC but you don't have a Groovy compiler, I attach a few notes telling
+If you have a PC but you don't have a
+Python interpreter, I attach a few notes telling
 you how you can obtain one (see Section~\ref{sec:obta-inst-runn}).
 
 
 \subsection{Outputting words and ends of lines}
 
-Let's suppose that you manage to compile your program 
-and that you then run it.  Your running of the above program
+Let's suppose that you manage to %compile
+get your program to run.
+%and that you then run it.
+Your running of the above program
 would produce something like this on the screen if you typed in
 the word Tom followed by RETURN: 
 
@@ -240,29 +277,49 @@ Tom
 
 The first line is the result of you keying in the word Tom.  The system ``echoes''
 the keystrokes to the screen, in the usual way.  When you hit RETURN, the
-computer executes the \verb!str = System.console().readLine()! instruction, 
+computer executes the \verb!word = input()! instruction, 
 i.e., it reads the word or words that have been input.  Then it
-executes the \verb!println! instruction and the word or words that were
+executes the \verb!print! instruction and the word or words that were
 input appear on the screen again.
 
 We can also get the computer to display additional words by putting
-them in quotes after the \verb!println!, for example:
+them in quotes\footnote{In Python, we can choose between \texttt{'} and \texttt{"}, but we cannot use both together.}
+in the parentheses after the \verb!print!, for example:
 
 \begin{Verbatim}
-      println "Hello"
+      print('Hello')
 \end{Verbatim}
 
 We can use this to improve the above program:
 
-\VerbatimInput[frame=single,label=Example]{src/Example3.groovy}
+\VerbatimInput[frame=single,label=Example]{src/Example3.py}
 
 An execution, or ``run'', of this program might appear on the screen thus:
+\begin{Verbatim}
+Please key in a word:
+Tom
+The word was:
+Tom
+\end{Verbatim}
+
+Here each time the computer executed the \verb!print! instruction,
+it also went into a new line.
+If we use \verb!print(word, end = '')! instead of \verb!print(word)!
+then no extra line is printed after the value.\footnote{The reason is that
+ with \Verb!end = ''! we are telling Python that after printing the contents
+ of \Verb!word!, we want to print nothing at the end instead of going to a
+ new line.}
+So we can improve our program a bit further:
+
+\VerbatimInput[frame=single,label=Example]{src/Example3a.py}
+
+Now a ``run'' of this program might appear on the screen thus:
 \begin{Verbatim}
 Please key in a word: Tom
 The word was: Tom
 \end{Verbatim}
 
-Note the spaces in lines 2 and 4 of the program after \verb!word:! and \verb!was:!.
+Note the spaces in lines 1 and 3 of the program after \verb!word:! and \verb!was:!.
 This is so that what appears on the screen is \verb!word: Tom! and
 \verb!was: Tom! rather than \verb!word:Tom! and \verb!was:Tom!.
 
@@ -270,35 +327,38 @@ It's possible to output more than one item with a single \verb!print! instructio
 For example, we could combine the last two lines of the above program into one:
 
 \begin{Verbatim}
-println "The word was " + str
+print('The word was ' + word)
 \end{Verbatim}
 
-and the output would be exactly the same. The symbol ``+'' does not
+and the output would be exactly the same. The symbol ``\texttt{+}'' does not
 represent addition in this context, it represents concatenation, i.e.,
 writing one string after the other. We will look at addition of numbers in the next section.
 
+
 Let's suppose that we now added three lines to the end of our program, thus:
 
-\VerbatimInput[frame=single,label=Example]{src/Example4.groovy}
+\VerbatimInput[frame=single,label=Example]{src/Example4.py}
+
+% After running this program, the screen would look something like this:
+% \begin{Verbatim}
+% Please key in a word: Tom
+% The word was TomNow please key in another: Jack
+% And this one was Jack
+% \end{Verbatim}
+
+% which is probably not what we wanted.  If we want a new line after the
+% first word is printed, we need to use the \verb!println! instruction we mentioned earlier:
+
+% \VerbatimInput[frame=single,label=Example]{src/Example5.groovy}
+
+% Now we would get:
 
 After running this program, the screen would look something like this:
 \begin{Verbatim}
 Please key in a word: Tom
-The word was TomNow please key in another: Jack
-And this one was Jack
-\end{Verbatim}
-
-which is probably not what we wanted.  If we want a new line after the
-the first word is printed, we need to use the \verb!println! instruction we mentioned earlier:
-
-\VerbatimInput[frame=single,label=Example]{src/Example5.groovy}
-
-Now we would get:
-\begin{Verbatim}
-Please key in a word: Tom
 The word was Tom
-Now please key in another: Jack
-And this one was Jack
+Now please key in another: Jane
+And this one was Jane
 \end{Verbatim}
 
 
@@ -307,7 +367,7 @@ And this one was Jack
 Now pause and see if you can write:
 \begin{enumerate}
 \item
-a Groovy instruction which would output a blank line.
+a Python instruction which would output a blank line.
 \item
 an instruction which would output
 
@@ -338,23 +398,23 @@ First
 \subsection{Assignment and initialisation}
 
 There is another way to get a string into a box apart from using
-\verb!System.console().readLine()!.  We can write, for instance:
+\verb!input()!.  We can write, for instance:
 
 \begin{Verbatim}
-    str = "Some text"
+    word = 'Some text'
 \end{Verbatim}
 
-This has the effect of putting the string ``Some text'' into the
-\verb!str! box.  Whatever content was in \verb!str! before is obliterated; the
+This has the effect of putting the string `Some text' into the
+\verb!word! box.  Whatever content was in \verb!word! before is obliterated; the
 new text replaces the old one. 
 
 In programming, this is called \emph{assignment}.  We say that the
-value ``Some text'' is
-assigned to the variable \verb!str!, or that the variable \verb!str! takes the
-value ``Some text''.  The ``='' symbol is the assignment operator in Groovy.  We are not
-testing whether \verb!str! has the value ``Some text'' or not, nor are we stating that
-\verb!str! has the value ``Some text''; we are \emph{giving} the value
-``Some text'' to \verb!str!.
+value `Some text' is
+assigned to the variable \verb!word!, or that the variable \verb!word! takes the
+value `Some text'.  The ``\texttt{=}'' symbol is the assignment operator in Python.  We are not
+testing whether \verb!word! has the value `Some text' or not, nor are we stating that
+\verb!word! has the value `Some text'; we are \emph{giving} the value
+`Some text' to \verb!word!.
 
 % Unneeded. Probably should delete.
 %
@@ -369,66 +429,90 @@ testing whether \verb!str! has the value ``Some text'' or not, nor are we statin
 An assignment instruction such as this:
 
 \begin{Verbatim}
-    str = str + " and some more"
+    word = word + ' and some more'
 \end{Verbatim}
 
 looks a little strange at first but makes perfectly good sense.
-Let's suppose the current value of \verb!str! (the contents of the
-box) is ``Some text''.
-The instruction says, 'Take the value of \verb!str!
-(``Some text''), add `` and some more''  to it (obtaining ``Some text and some
-more'') 
-and put the result into \verb!str!'.
-So the effect is to put ``Some text and some more'' into \verb!str! in
-place of the earlier ``Some text''.
+Let's suppose the current value of \verb!word! (the contents of the
+box) is `Some text'.
+The instruction says, ``Take the value of \verb!word!
+(`Some text'), add ` and some more'  to it (obtaining `Some text and some
+more') 
+and put the result into \verb!word!''.
+So the effect is to put `Some text and some more' into \verb!word! in
+place of the earlier `Some text'.
 
-The \verb!=! operator is also used to initialise variables.  When the computer
-allocates a portion of memory to store one of your variables, it does not
-clear it for you; the variable holds whatever value this portion of memory
-happened to have the last time it was used.  Its value is said to be
-\emph{undefined.}
 
-Using undefined values is a common cause of program
-bugs.  
-% Suppose a program uses the variable \verb!str! without giving it an
-% initial value and suppose that, on the computer the programmer is using,
-% the initial value in \verb!num! happens to be zero and that, by happy chance,
-% zero is just what the programmer wants it to be.
-% The program seems to work fine.  Then the program is compiled and run on
-% a different computer.  On this second computer, the initial value of \verb!num!
-% does not happen to be zero.  The program, which has worked OK on the first
-% computer, does not work on the second one.
-%
-To prevent yourself from using undefined values, you can give a variable
-an initial value when you declare it.  For example, if you wanted \verb!str! to begin
-with empty, you should declare it thus:
+% We also say that the first time we put something into a variable \verb!foo!,
+% we \emph{define} \verb!foo!.
 
-\begin{Verbatim}
-      String str = ""
-\end{Verbatim}
 
-This is very like assignment since we are giving a value to \verb!str!. But
-this is a special case where \verb!str! did not have any defined value before,
-so it is known as \emph{initialisation.}
+%%% Python does not to uninitialised variables :)
+The \verb!=! operator is also used to ``initialise'' variables.
+In Python, a variable is \emph{defined} by the first assignment to
+that variable, the first time you put something into it. This first
+assignment is often also called \emph{initialisation}.
+You can read from a variable only after it has been initialised.
+
+% The reason for allowing to read from a variable only after something
+% is put into it is as follows.
+% When the computer allocates a portion of memory to store one of your
+% variables, it does not clear it for you; the variable holds whatever
+% value this portion of memory happened to have the last time it was
+% used.
+% %  Its value is said to be \emph{undefined.}
+% To prevent strange values coming from such an ``uninitialised''
+% portion of memory, Python will complain if you try to read from a
+% variable into which you have not put anything yet.
+
+% Earlier I said that in Python you have to make sure that you have put
+% something into a variable before you read from it, e.g., to print its
+% contents. 
+
+% Using undefined values is a common cause of program
+% bugs.  
+% % Suppose a program uses the variable \verb!str! without giving it an
+% % initial value and suppose that, on the computer the programmer is using,
+% % the initial value in \verb!num! happens to be zero and that, by happy chance,
+% % zero is just what the programmer wants it to be.
+% % The program seems to work fine.  Then the program is compiled and run on
+% % a different computer.  On this second computer, the initial value of \verb!num!
+% % does not happen to be zero.  The program, which has worked OK on the first
+% % computer, does not work on the second one.
+% %
+% In Python, you have to make sure that you have put something into a
+% variable before you read from it, e.g., to print its contents.
+
+% To prevent yourself from using undefined values, you can give a variable
+% an initial value when you declare it.  For example, if you wanted \verb!str! to begin
+% with empty, you should declare it thus:
+
+% \begin{Verbatim}
+%       String str = ""
+% \end{Verbatim}
+
+% This is very like assignment since we are giving a value to \verb!str!. But
+% this is a special case where \verb!str! did not have any defined value before,
+% so it is known as \emph{initialisation.}
 
 Finally a word about terminology.  I have used the word ``instruction''
-to refer to lines such as \verb!println str! and \verb!str = 5!.
+to refer to lines such as \verb!print(word)! and \verb!word = 'Some text'!.
 It seems a natural word to use since we are giving the computer instructions.
-But the correct word is actually ``statement''.  \verb!println str! is
-an output statement, and \verb!str = "Hello"! is an assignment statement.
-The lines in which we tell the computer about the variables we intend to
-use, such as \verb!String str! or \verb!String str = ""! are called
-variable \emph{definitions}.  They are also referred to as 
-variable \emph{declarations}.  When you learn more about Groovy you will
-find that you can have declarations which are not definitions, but the
-ones in these introductory notes are both definitions and declarations.
+But the correct word is actually `statement'.  \verb!print(word)! is
+an output statement, and \verb!word = 'Hello'! is an assignment statement.
+% The lines in which we tell the computer about the variables we intend to
+% use, such as \verb!String str! or \verb!String str = ""! are called
+% variable \emph{definitions}.  They are also referred to as 
+% variable \emph{declarations}.  When you learn more about Groovy you will
+% find that you can have declarations which are not definitions, but the
+% ones in these introductory notes are both definitions and declarations.
 
 \subsection*{Exercise B}
 
-Now see if you can write a program in Groovy that takes
+Now see if you can write a program in Python that takes
 two words from the keyboard and outputs one after the other on the same line. 
-E.g., if you keyed in ``Humpty'' and ``Dumpty'' 
-it would reply with ``Humpty Dumpty'' (note the space in between).
+E.g., if you keyed in `Humpty' and `Dumpty' 
+it would reply with `Humpty Dumpty' (note the space in between).
 A run of the program should look like this:
 
 \begin{Verbatim}

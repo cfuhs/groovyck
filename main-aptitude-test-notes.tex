@@ -1,7 +1,8 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage[pdftex]{geometry}
 \usepackage{fancyvrb}
-\usepackage[dvips]{graphicx}
+%%%\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
 %\usepackage{moreverb} % env: comment
 %\usepackage{alltt} 
 %\usepackage{pifont} 
@@ -16,10 +17,14 @@
 %\SetWatermarkFontSize{20cm}
 %\SetWatermarkScale{5.0} 
 
+\newcommand{\todo}[1]{\marginpar{\textsf{!!! #1}}}
+
+
 \title{A Short Introduction to Computer Programming\\
-  Using Groovy}
-\author{Sergio Gutierrez-Santos and Keith Mannock\\
-  (based on an earlier document by Roger Mitton)\\
+  Using Python}
+\author{Carsten Fuhs\\
+  (based on earlier documents by\\
+  Sergio Gutierrez-Santos, Keith Mannock, and Roger Mitton)\\
   Birkbeck, University of London}
 
 \date{\InputIfFileExists{version.txt}
@@ -42,14 +47,15 @@
 
 \begin{figure*}[h!]  % BBK logo
   \centering
-  \includegraphics[height=2cm]{bbk.eps}
+%  \includegraphics[height=2cm]{bbk.eps}
+  \includegraphics[height=2cm]{Birkbeck-Logo-Colour-330x104.jpg}
 \end{figure*}
 
 \vfill
 
 \noindent This document forms part of the pre-course reading for
 several MSc courses at Birkbeck, and it is required pre-interview
-reading for the MSc Computer Science.
+reading for the MSc Data Science.
 
 %\vfill 
 
@@ -63,8 +69,8 @@ reading for the MSc Computer Science.
 
 \textbf{Important note: } If anything is unclear, or you have any 
 sort of problem (e.g.,
-downloading or installing Groovy on your computer), please send an
-email to Sergio Gutierrez-Santos (\emph{sergut@dcs.bbk.ac.uk}).
+downloading or installing Python on your computer), please send an
+email to Carsten Fuhs (\emph{carsten@dcs.bbk.ac.uk}).
 \newpage
 
 \input{section1-Intro,basicIO,variables}
@@ -86,10 +92,10 @@ email to Sergio Gutierrez-Santos (\emph{sergut@dcs.bbk.ac.uk}).
 \input{cheatsheet}
 \newpage
 
-\input{groovyOnIDEs}
-\newpage
+% \input{groovyOnIDEs}
+% \newpage
 
-\section{Obtaining, installing and running Groovy on a PC}
+\section{Obtaining, installing and running Python on a PC}
 \label{sec:obta-inst-runn}
 \input{install}
 
