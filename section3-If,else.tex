@@ -228,10 +228,18 @@ Here Python offers us the keyword \verb!elif!, which is short for
 
 \VerbatimInput[frame=single,label=Example]{src/s2Example12.py}
 
+We can write more complex conditional expressions by joining them together
+using the operator \textbf{or}.  For example, the following additional
+condition at the start of the last program checks if the exam mark keyed in
+is invalid, i.e., less than 0 or greater than 100:
+
+\VerbatimInput[frame=single,label=Example]{src/s2Example13.py}
+
+
 \subsection*{Exercise B}
 
-Write a program that takes two numbers, one representing a
-husband's salary and the other representing the wife's, and tells them
+Write a program that takes two numbers as input, one representing a
+husband's salary and the other representing the wife's, and prints out
 whether or not their combined income makes them due for tax at the higher rate
 (i.e., it exceeds \pounds 40,000).
 
@@ -255,7 +263,8 @@ number is divisible by another.
 
 Write a program which takes an integer as its input, representing the time
 using the 24-hour clock.  For example, 930 is 9.30 am; 2345 is 11.45 pm.  Midnight is
-zero. The program responds with a suitable greeting for the time of day.
+zero. The program responds with a suitable greeting for the time of day
+(e.g., `Good morning', `Good afternoon', or `Good evening').
 If you want to make this a bit harder, make the program respond with a '?'
 if the time represented by the number is impossible, such as 2400, -5 or
 1163.
