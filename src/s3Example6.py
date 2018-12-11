@@ -1,7 +1,7 @@
 m = 0
 finished = False
 while not finished:
-    print('Enter another integer number (0 to finish): ', end = '')
+    print("Enter another integer number (0 to finish): ", end = "")
     s = input()
     num = int(s)    
     if num != 0:

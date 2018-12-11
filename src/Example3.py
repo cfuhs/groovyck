@@ -1,4 +1,4 @@
-print('Please key in a word:')
+print("Please key in a word:")
 word = input()
-print('The word was:')
+print("The word was:")
 print(word)

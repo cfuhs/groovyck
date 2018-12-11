@@ -1,2 +1,2 @@
 if num == 180:
-    print('One hundred and eighty!')
+    print("One hundred and eighty!")
