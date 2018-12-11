@@ -66,21 +66,21 @@ to something like alphabetical order (the order used for entries in a
 printed dictionary).  For instance, \verb!if s < t:!,
 where  \verb!s! and \verb!t! are strings, means ``If  \verb!s! comes before \verb!t!
 in alphabetical order''.  So it would be true if  \verb!s! had the value
-`\verb!Birkbeck!' and \verb!t! had the value `\verb!College!'.  All the
+"\verb!Birkbeck!" and \verb!t! had the value "\verb!College!".  All the
 upper-case letters come before the lower-case, so \verb!s < t! would
-still be true if  \verb!s! had the value `\verb!Zebra!' and \verb!t! had the
-value `\verb!antelope!' (upper-case 'Z' comes before lower-case 'a').
+still be true if  \verb!s! had the value "\verb!Zebra!" and \verb!t! had the
+value "\verb!antelope!" (upper-case "Z" comes before lower-case "a").
 
 But what about strings that contain non-alphabetic characters?  Would
-\verb!s!  come before \verb!t! if \verb!s! had the value ``\verb!#+*!''
-and \verb!t! had the value ``\verb+$&!+''?  To find the answer we have
+\verb!s!  come before \verb!t! if \verb!s! had the value "\verb!#+*!"
+and \verb!t! had the value "\verb+$&!+"?  To find the answer we have
 to consult the \emph{UNICODE table} -- the Universal Character Set.
 UNICODE defines a particular ordering of all the characters on the
 keyboard.  (There are other orderings in use, notably EBCDIC which is
 used on IBM mainframe computers, and ASCII, which was adopted by PCs and
 became the de facto standard for English-based languages.)
-The UNICODE table tells us that the character '\#' comes before the
-character '\verb!$!', for instance.  The latest version of Unicode\footnote{The full list can be downloaded from many
+The UNICODE table tells us that the character "\#" comes before the
+character "\verb!$!", for instance.  The latest version of Unicode\footnote{The full list can be downloaded from many
 places, including Wikipedia
 (\texttt{http://en.wikipedia.org/wiki/List\_of\_Unicode\_characters}).}
 consists of a repertoire of more than 120,000 characters covering 129
@@ -91,9 +91,9 @@ ones, and many more). Some points worth remembering are:
 \item
 The space character comes before all the printable characters.
 \item
-Numerals come in the order you'd expect, from '0' to '9'.
+Numerals come in the order you'd expect, from "0" to "9".
 \item
-Letters come in the order you'd expect, from 'A' to 'Z' and from 'a' to 'z'.
+Letters come in the order you'd expect, from "A" to "Z" and from "a" to "z".
 \item
 Numerals come before upper-case letters and upper-case letters come before lower-case.
 \end{itemize}
@@ -108,11 +108,11 @@ had the value on the right:
 \medskip
 
 \begin{tabular}{ll}
-\verb!'A'! & \verb!'9'!\\
-\verb!'Zurich'! & \verb!'acapulco'!\\
-\verb!'Abba'! & \verb!'ABBA'!\\
-\verb!'long_thing_with_a_$'! & \verb!'long_thing_with_a_&'!\\
-\verb!'King@example.invalid'! & \verb!'King Kong'!\\
+\verb!"A"! & \verb!"9"!\\
+\verb!"Zurich"! & \verb!"acapulco"!\\
+\verb!"Abba"! & \verb!"ABBA"!\\
+\verb!"long_thing_with_a_$"! & \verb!"long_thing_with_a_&"!\\
+\verb!"King@example.invalid"! & \verb!"King Kong"!\\
 \end{tabular}
 \medskip
 
@@ -129,7 +129,7 @@ less than 50?  The program does nothing.  This kind of \verb!if! statement is a
 one-way branch.  If the condition is true, we do something; if not, we do
 nothing.  But in this case
 this seems unsatisfactory.  If the exam mark is less than 50, we would like
-it to display `Sorry, you have failed.'  We could arrange this by
+it to display ``Sorry, you have failed.''  We could arrange this by
 including another test -- \verb!if examMark < 50:!  -- or, better, we could
 do it by using the keyword \verb!else!, thus:
 
@@ -178,14 +178,14 @@ Look at this example:
 
 If the exam mark is greater than or equal to 50, 
 the whole of the block is executed and both
-lines `A satisfactory result!' and `You may proceed with your
-project.' will be printed.  If the mark is lower than 50, 
+lines ``A satisfactory result!'' and ``You may proceed with your
+project.'' will be printed.  If the mark is lower than 50, 
 the computer skips to
-the \verb!else! and executes the `Sorry' line.
+the \verb!else! and executes the ``Sorry'' line.
 
 We can reduce the indent level again to tell Python where e.g.\
 the block inside the \verb!else! ends. We might add
-a line to the previous example to print a `Good bye.'\ message
+a line to the previous example to print a ``Good bye.''\ message
 in all cases:
 
 \VerbatimInput[frame=single,label=Example]{src/s2Example9a.py}
@@ -235,37 +235,46 @@ is invalid, i.e., less than 0 or greater than 100:
 
 \VerbatimInput[frame=single,label=Example]{src/s2Example13.py}
 
-
 \subsection*{Exercise B}
+
+\athena{Optional: read through the following section and
+try to solve its exercises:
+\begin{center}
+\url{https://cscircles.cemc.uwaterloo.ca/6-if/}
+\end{center}
+}
+
+
+\subsection*{Exercise C}
 
 Write a program that takes two numbers as input, one representing a
 husband's salary and the other representing the wife's, and prints out
 whether or not their combined income makes them due for tax at the higher rate
 (i.e., it exceeds \pounds 40,000).
 
-\subsection*{Exercise C}
+\subsection*{Exercise D}
 
 Extend the program about students' marks so that all the candidates
-get two lines of output, the unsuccessful ones getting `Sorry, you
-have failed.'\ and `You may re-enter next year.'
+get two lines of output, the unsuccessful ones getting ``Sorry, you
+have failed.''\ and ``You may re-enter next year.''
 
-\subsection*{Exercise D}
+\subsection*{Exercise E}
 
 Write a program which takes two integers as input.
 If the first is exactly divisible
 by the second (such as 10 and 5 or 24 and 8, but not 10 and 3 or 24 and 7)
-it outputs `Yes', otherwise `No', except when the second
-is zero, in which case it outputs `Cannot divide by zero'. Remember
+it outputs ``Yes'', otherwise ``No'', except when the second
+is zero, in which case it outputs ``Cannot divide by zero''. Remember
 you can use the modulo operator (``\texttt{\%}'') to find out whether one
 number is divisible by another. 
 
-\subsection*{Exercise E}
+\subsection*{Exercise F}
 
 Write a program which takes an integer as its input, representing the time
 using the 24-hour clock.  For example, 930 is 9.30 am; 2345 is 11.45 pm.  Midnight is
 zero. The program responds with a suitable greeting for the time of day
-(e.g., `Good morning', `Good afternoon', or `Good evening').
-If you want to make this a bit harder, make the program respond with a '?'
+(e.g., ``Good morning'', ``Good afternoon'', or ``Good evening'').
+If you want to make this a bit harder, make the program respond with a ``?''
 if the time represented by the number is impossible, such as 2400, -5 or
 1163.
 

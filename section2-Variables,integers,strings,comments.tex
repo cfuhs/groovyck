@@ -1,6 +1,9 @@
 \section{Variables, identifiers and expressions}
 
-In this section we will discuss integer numbers, arithmetic expressions, 
+\athena{In this section, we will look at the fundamentals of how Python
+stores and manipulates information. To this end,}
+% In this section
+we will discuss integer numbers, arithmetic expressions, 
 identifiers, comments, and strings.
 
 %\subsection{Integer variables}
@@ -60,10 +63,10 @@ we saw in the last section -- when dealing with strings the same
 symbol represents concatenation. Therefore, the statement
 
 \begin{Verbatim}
-    word = 'My name is ' + 'Inigo Montoya'
+    word = "My name is " + "Inigo Montoya"
 \end{Verbatim}
 
-results in \verb+word+ having the value `My name is Inigo Montoya',
+results in \verb+word+ having the value "My name is Inigo Montoya",
 while the statement
 
 \begin{Verbatim}
@@ -75,7 +78,7 @@ mix integer values and string values when using ``\texttt{+}'', say in the
 following statement?
 
 \begin{Verbatim}
-    answer = 'Answer: ' + 42
+    answer = "Answer: " + 42
 \end{Verbatim}
 
 In that case, Python will give us an error message similar to the
@@ -86,14 +89,14 @@ TypeError: cannot concatenate 'str' and 'int' objects
 \end{Verbatim}
 
 This means that Python does not know how to connect (``concatenate'')
-the string `Answer: '\ (Python uses the name ``str'' for the
+the string "Answer: "\ (Python uses the name ``str'' for the
 \emph{type} of strings) and the integer 42 (``int'').
 To clarify that we want to use ``\texttt{+}'' to concatenate two strings (and
 not to use ``\texttt{+}'' to add two values), we can convert the ``int'' value
-42 to the ``str'' value `42' with the command \verb!str()!:
+42 to the ``str'' value "42" with the command \verb!str()!:
 
 \begin{verbatim}
-    answer = 'Answer: ' + str(42)
+    answer = "Answer: " + str(42)
 \end{verbatim}
 
 %  converts the integers to strings and performs
@@ -102,9 +105,9 @@ not to use ``\texttt{+}'' to add two values), we can convert the ``int'' value
 Similarly, the small program
 
 \begin{Verbatim}
-    word = 'My name is ' + 'Inigo Montoya'
+    word = "My name is " + "Inigo Montoya"
     n = 10 + 7
-    text = word + ' and I am ' + str(n)
+    text = word + " and I am " + str(n)
     print(text)
 \end{Verbatim}
 
@@ -132,9 +135,12 @@ We can do this easily by \emph{parsing} it using the command
 
 When we parse a string that contains an integer we obtain an integer
 with the correct value. If we try to parse a string that is not an
-integer (for example, the word `Tom') the program will terminate with an error
+integer (for example, the word "Tom") the program will terminate with an error
 message on the screen. If we do not parse the string and use it as if
-it was an integer, the results will be unpredictable. This
+it was an integer, the results will
+% be unpredictable.
+\athena{not be what you'd expect.}
+This
 is a common source of errors in programs. You can check for yourself
 what happens if you do not parse the string in the former example,
 e.g., what happens with this program:
@@ -190,7 +196,8 @@ understand what the following program does:
 
 \VerbatimInput[frame=single,label=Example]{src/s2Example.py}
 
-A computer would get into difficulty if it tried to divide by zero.
+A computer would get into difficulty if it tried to divide by
+zero \athena{(it is not clear what the result should be)}.
 Consequently, the system makes sure that it never does.
 If a program tries to get the computer to divide by zero, the program
 is unceremoniously terminated, usually with an error message on the
@@ -211,6 +218,16 @@ Write down the output of the above program without executing it.
 
 Now execute it and check if you got the right values. Did you get them
 all right? If you got some wrong, why was it?
+
+\subsection*{Exercise B}
+
+\athena{Optional: read through the following section and
+try to solve its exercises:
+\begin{center}
+\url{https://cscircles.cemc.uwaterloo.ca/1-variables/}
+\end{center}
+}
+
 
 
 \subsection{Identifiers and comments}
@@ -296,7 +313,7 @@ and make them matter. A good rule of thumb is that comments should
 explain ``why'' and not ``how'': the code already says \emph{how}
 things are done! 
 
-\subsection*{Exercise B}
+\subsection*{Exercise C}
 
 Say for each of the following whether it is a valid identifier
 in Python and, if not, why not:
@@ -330,18 +347,18 @@ long as we know what it does.}
 You could say, for example:
 
 \begin{Verbatim}
-    print('Please enter some text: ', end = '')
+    print("Please enter some text: ", end = "")
     word = input()
     length = len(word)
-    print('The string ' + word + ' has ' + str(length) + ' characters.')
+    print("The string " + word + " has " + str(length) + " characters.")
 \end{Verbatim}
 
 You can obtain a substring (or a ``slice'')
 of a string as in the %\verb!substring! method.
 following example:
-If the variable \verb!s! has the string value `\verb!Silverdale!', then
+If the variable \verb!s! has the string value "\verb!Silverdale!", then
 \verb!s[0:6]! will give you the first six letters, i.e., the string
-`\verb!Silver!'.  The first number in square brackets
+"\verb!Silver!".  The first number in square brackets
 after the string
 says where you want the substring to begin, and the second number says
 where you want it to end (to be precise, the second number is the
@@ -351,18 +368,27 @@ is treated as being at position~0, not position~1}.
 Similarly, \verb!s[2:6]! will give you the string \verb!lver!.
 
 If you leave out the second number, you get the rest of the string.
-For example, \verb!s[6:]! would give you `\verb!dale!', i.e., the
-tail end of the string beginning at character 6 ('d' is character 6,
-not 7, because the 'S' character is character 0).
+For example, \verb!s[6:]! would give you "\verb!dale!", i.e., the
+tail end of the string beginning at character 6 ("d" is character 6,
+not 7, because the "S" character is character 0).
 
 You can output substrings with \verb!print! or assign them to other
 strings or combine them with the ``\texttt{+}'' operator.  For example:
 
 \VerbatimInput[frame=single,label=Example]{src/s2Example2.py}
 
-will output `soft ices'.
+will output ``soft ices''.
 
-\subsection*{Exercise C}
+\subsection*{Exercise D}
+
+\athena{Optional: read through the following section and
+try to solve its exercises:
+\begin{center}
+\url{https://cscircles.cemc.uwaterloo.ca/7a-strings/}
+\end{center}
+}
+
+\subsection*{Exercise E}
 
 Say what the output of the following program fragment would be:
 

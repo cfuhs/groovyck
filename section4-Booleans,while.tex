@@ -40,9 +40,9 @@ value 95. As 95 is still less than 100, it enters the loop again, adds 5 to
 \texttt{num} to make it 100 and outputs this number.  Then it goes
 back to the \texttt{while} and this time sees that \texttt{num} is not
 less than 100.  So it stops looping, goes on to the line after the
-end of the loop, and prints `Done looping!'.
+end of the loop, and prints ``Done looping!''.
 The output of this program is the numbers 5,
-10, 15, 20 and so on up to 95, 100, followed by `Done looping!'.
+10, 15, 20 and so on up to 95, 100, followed by ``Done looping!''.
 
 Note the use of %curly braces
 indent to mark the start and end of the loop.
@@ -77,10 +77,20 @@ of the loop and finish, producing no output.
 
 \subsection*{Exercise A}
 
+\athena{Optional: read through the following section and
+try to solve its exercises:
+\begin{center}
+\url{https://cscircles.cemc.uwaterloo.ca/7c-loops/}
+\end{center}
+For our purposes, it suffices to look at the ``\texttt{while} Loops'' part.}
+
+
+\subsection*{Exercise B}
+
 Write a program that outputs the squares of all the numbers from 1 to
 10, i.e., the output will be the numbers 1, 4, 9, 16 and so on up to 100.
 
-\subsection*{Exercise B}
+\subsection*{Exercise C}
 
 Write a program that asks the user to type in 5 numbers, and that
 outputs the largest of these numbers and the smallest of these
@@ -116,13 +126,13 @@ The word \texttt{True}, without quote marks, is not a string; it's the name of a
 boolean value.  Contrast it with:
 
 \begin{Verbatim}
-    positive = 'True'
+    positive = "True"
 \end{Verbatim}
 
 Here \texttt{positive} is assigned
-the four-character string `\texttt{True}', not the truth value
+the four-character string "\texttt{True}", not the truth value
 \texttt{True}. (This is similar to the difference between e.g.\ the
-number 42 and the string `42' that we saw earlier.)
+number 42 and the string "42" that we saw earlier.)
 %  By contrast, \texttt{positive}
 % is a boolean variable and we cannot assign strings to it.
 % It can hold only the values \texttt{true} or \texttt{false}.
@@ -206,8 +216,8 @@ We can make more complex boolean expressions by joining simple ones
 with the operators \verb!and! and \verb!or!.  For example,
 we can express ``if x is a non-negative odd number'' as
 \verb+if x >= 0 and x % 2 == 1:+. We can express ``if the name begins
-with an A or an E'' as \texttt{if name[0:1] == 'A' or
-  name[0:1] == 'E':}.  The rules for evaluating \emph{and}
+with an A or an E'' as \texttt{if name[0:1] == "A" or
+  name[0:1] == "E":}.  The rules for evaluating \emph{and}
 and \emph{or} are as follows:
 
 \vspace{1em}
@@ -232,10 +242,10 @@ whole thing would be True. As you can see, \emph{and} is True if and
 only if both sides are True, otherwise it's False; \emph{or} is False
 if and only if both sides are False, otherwise it's True.
 
-\subsection*{Exercise C}
+\subsection*{Exercise D}
 
 Given that \texttt{x} has the value 5, \texttt{y} has the value 20,
-and \texttt{s} has the value `\texttt{Birkbeck}', decide whether these
+and \texttt{s} has the value "\texttt{Birkbeck}", decide whether these
 expressions are True or False:
 
 \begin{verbatim}
@@ -320,12 +330,12 @@ of \texttt{total} each time round the loop.  If you keyed in the numbers
 4, 5, 6, 7 and 8, then, instead of just getting the total (30) as the output,
 you would get 4, 9, 15, 22 and then 30.
 
-\subsection*{Exercise D}
+\subsection*{Exercise E}
 
 Write a program that reads a series of numbers, ending with 0, and then tells you how
 many numbers you have keyed in (other than the last 0).  For example, if you keyed in the
-numbers~5, -10, 50, 22, -945, 12, 0 it would output `You have entered 6
-numbers.'.
+numbers~5, -10, 50, 22, -945, 12, 0 it would output ``You have entered 6
+numbers.''.
 
 
 % \subsection{System libraries}

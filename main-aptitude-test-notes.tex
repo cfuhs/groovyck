@@ -6,7 +6,8 @@
 %\usepackage{moreverb} % env: comment
 %\usepackage{alltt} 
 %\usepackage{pifont} 
-%\usepackage{color} 
+\usepackage{color} 
+\usepackage{url}
 %\usepackage{subfigure}
 %\usepackage{listings}
 %\usepackage{amssymb}
@@ -19,10 +20,11 @@
 
 \newcommand{\todo}[1]{\marginpar{\textsf{!!! #1}}}
 
+\newcommand{\athena}[1]{\textcolor{blue}{#1}}
 
 \title{A Short Introduction to Computer Programming\\
   Using Python}
-\author{Carsten Fuhs\\
+\author{Carsten Fuhs and David Weston\\
   (based on earlier documents by\\
   Sergio Gutierrez-Santos, Keith Mannock, and Roger Mitton)\\
   Birkbeck, University of London}
@@ -90,6 +92,7 @@ email to Carsten Fuhs (\emph{carsten@dcs.bbk.ac.uk}).
 \newpage
 
 \section{Summary of the language features mentioned in this introduction}
+\label{sec:summ-lang-feat}
 \input{cheatsheet}
 \newpage
 
@@ -99,6 +102,9 @@ email to Carsten Fuhs (\emph{carsten@dcs.bbk.ac.uk}).
 \section{Obtaining, installing and running Python on a PC}
 \label{sec:obta-inst-runn}
 \input{install}
+\newpage
+
+\input{test}
 
 \end{document}  
 

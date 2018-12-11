@@ -2,10 +2,25 @@
 
 %Simple input/output with integers, outputting words and ends of lines, assignment and initialisation}
 
+%% Why should YOU want to write computer programs?
+\athena{Computing increasingly permeates everyday life,
+from the apps on our phones to the social networks that connect us.
+Thus, there is a need for people to
+% have the skill of not just using
+%be able to
+not just use
+such systems made by others, but
+%also
+to be empowered to create their own.
+%  and modify them, and ultimately
+% to shape the future of our society.
+}
+
 To get a computer to do something, you have to tell it what you want it
 to do.  You give it a series of instructions in the form of a \emph{program}.
 You write a program in a \emph{programming language}.
-Many programming languages have been devised; well-known ones include
+Many programming languages have been devised \athena{over the decades};
+well-known ones include
 Fortran, BASIC, Cobol, Algol, Lisp, Ada, C++, Python, Ruby, Scala, and Java.
 
 % The language we will use in this document is named \emph{Groovy}, and
@@ -14,6 +29,8 @@ Fortran, BASIC, Cobol, Algol, Lisp, Ada, C++, Python, Ruby, Scala, and Java.
 
 The language we will use in this document is named \emph{Python}.
 More precisely, we are using version 3 of the Python language.
+\athena{Python hits a sweet spot: it makes writing simple programs easy
+and is robust enough for a wide uptake in a variety of industries.}
 
 Programming languages vary a lot, but
 an instruction in a typical programming language might contain
@@ -33,11 +50,13 @@ Here is a complete, short program written in Python:
 
 \VerbatimInput[frame=single,label=Example]{src/Example1.py}
 
+\pagebreak
+
 When you write a program, you have to be very careful to keep to the
 syntax of the programming language, i.e., to the grammar rules of the language.
 For example, the above Python program would
 behave incorrectly if in the 12$^{th}$ line we wrote
-\pagebreak
+%\pagebreak
 
 \begin{Verbatim}
     if maxi = 0:
@@ -68,7 +87,11 @@ or if any of the parentheses (or colons) were missing, or if we wrote
 
 \subsection{Input and output}
 
-To get the computer to take some input and to store it
+\athena{Almost all programs need to communicate with the outside world to
+be useful. In particular, they need to read input and to remember it. They
+also need to respond with an answer.}
+
+To get the computer to take some input \athena{as text} and to store it
 in its memory, we write in Python:
 
 \begin{Verbatim}
@@ -88,7 +111,7 @@ means
 ``Take some input which is a sequence of characters and put it into the computer's memory.''
 
 \verb!word! by contrast, is a word that I (the programmer) have chosen.
-I could have used \verb!characters! or \verb!thingy! or \verb!foodle!
+I could have used \verb!characters! or \verb!thingy! or \verb!breakfast!
 or just \verb!s! or almost any word I wanted. (There are some
 restrictions which I will deal with in the next section.)  
 % You may occasionally see the semi-colon used in a program and that signals the
@@ -96,8 +119,10 @@ restrictions which I will deal with in the next section.)
 
 Computers can take in all sorts of things as input --- numbers,
 letters, words, records and so on --- but, to begin with, we will
-write programs that generally handle strings of characters (like
-'I', 'hi', 'My mother has 3 cats', or 'This is AWESOME!').
+write programs that generally handle
+% strings
+\athena{text as sequences (or \emph{strings})} of characters (like
+"I", "hi", "My mother has 3 cats", or "This is AWESOME!").
 We'll also assume that the computer is taking its input from the
 keyboard, i.e., when the program is executed, you key in one or more
 words at the keyboard and these are the characters that the computer 
@@ -120,11 +145,11 @@ you type at the keyboard (whatever you like) and will put them into
 the box which has the name \verb!word!.
 
 Each of these boxes in the computer's memory can hold only one string at a time.  If a box is
-holding, say, 'hello', and you put 'Good bye!'\ into it, the
-'Good bye!'\ replaces the 'hello'.  In computer parlance these
+holding, say, "hello", and you put "Good bye!"\ into it, the
+"Good bye!"\ replaces the "hello".  In computer parlance these
 boxes are called \emph{variables} because the content inside the box
-can vary; you can put an 'I' in it to start with and later change it
-to a 'you' and change it again to 'That was a hurricane' and so on
+can vary; you can put an "I" in it to start with and later change it
+to a "you" and change it again to "That was a hurricane" and so on
 as often as you want.
 Your program can have as many variables as you want.
 
@@ -169,7 +194,7 @@ a program that reads from a variable into which nothing has yet been put.
 % program, but you mustn't try to use a variable before you've declared it.
 
 If you want the computer to display (on the screen) the contents of one of
-its boxes, you use \verb!print(foo)! where instead of \verb!foo!
+its boxes, you use \athena{\texttt{print(thingy)}} where instead of \athena{\texttt{thingy}}
 you write the name of the box.  For example, we can print the contents of
 \verb!word! by writing:
 
@@ -177,8 +202,8 @@ you write the name of the box.  For example, we can print the contents of
       print(word)
 \end{Verbatim}
 
-If the contents of the box called \verb!word! happened to be 'Karl', then when the
-computer came to execute the instruction \verb!print(word)! the word 'Karl' would appear
+If the contents of the box called \verb!word! happened to be "Karl", then when the
+computer came to execute the instruction \verb!print(word)! the word "Karl" would appear
 on the screen.  
 
 
@@ -202,12 +227,23 @@ of human readers, not for the computer which ignores any indentations.
 Python goes a step further and uses indentation as a part of the language
 to structure the programs. We will see more about this a bit later.
 
+\pagebreak
+
 \subsection{Running a program}
 
 You can learn the rudiments of Python from these notes just by doing the
-exercises with pencil and paper.  It is not essential to run your programs
-on a computer.  However, if you have a computer and are wondering how
-you run the programs, you will need to know the following, and, even if you don't have
+exercises with pencil and paper.
+\athena{However, it is a good idea to test your programs using a computer
+after you have written them so you can validate that they do what you
+intended. If}
+%   It is not essential to run your programs
+% on a computer.
+%However, if
+you have a computer and are wondering how
+you run
+% the
+\athena{your}
+programs, you will need to know the following, and, even if you don't have
 a computer, it will help if you have some idea of how it's done.
 
 First of all you type your program into the computer using a text
@@ -250,7 +286,7 @@ to do first time.  Often it doesn't.  You look at what your program is
 doing, look again at your program and try to see why it is not doing what
 you intended.  You correct the program and run it again.
 You might have to do this many times before the program behaves in the way
-you wanted.
+you wanted. \athena{This is normal and nothing to worry about at this stage.}
 
 As I said earlier, you can study this introduction without running your
 programs on a computer.  However, it's possible that you have a PC with
@@ -260,8 +296,28 @@ If you have a PC but you don't have a
 Python interpreter, I attach a few notes telling
 you how you can obtain one (see Section~\ref{sec:obta-inst-runn}).
 
+\athena{If you do not wish to install Python on your machine, you can use
+the online Python editor and interpreter at
+\begin{center}
+\url{https://repl.it/languages/python3}
+\end{center}
+Have a look at the intro video at
+\begin{center}
+\url{https://replit.github.io/media/quick-start/simple-repl.mp4}
+\end{center}
+and the quick-start guide
+\begin{center}
+\url{https://repl.it/site/docs/misc/quick-start}
+\end{center}
+}
+
+%\pagebreak
 
 \subsection{Outputting words and ends of lines}
+
+% \athena{So far, we've been able to talk to the computer.
+% For the computer to talk back to us, we need
+% }
 
 Let's suppose that you manage to %compile
 get your program to run.
@@ -283,14 +339,16 @@ executes the \verb!print! instruction and the word or words that were
 input appear on the screen again.
 
 We can also get the computer to display additional words by putting
-them in quotes\footnote{In Python, we can choose between \texttt{'} and \texttt{"}, but we cannot use both together.}
+them in quotes\footnote{In Python, we can choose between \texttt{"} and \texttt{'}, but we cannot use both together.}
 in the parentheses after the \verb!print!, for example:
 
 \begin{Verbatim}
-      print('Hello')
+      print("Hello")
 \end{Verbatim}
 
-We can use this to improve the above program:
+We can use this to
+% improve the above program:
+\athena{make the above program more user-friendly:}
 
 \VerbatimInput[frame=single,label=Example]{src/Example3.py}
 
@@ -304,12 +362,14 @@ Tom
 
 Here each time the computer executed the \verb!print! instruction,
 it also went into a new line.
-If we use \verb!print(word, end = '')! instead of \verb!print(word)!
+If we use \verb!print(word, end = "")! instead of \verb!print(word)!
 then no extra line is printed after the value.\footnote{The reason is that
- with \Verb!end = ''! we are telling Python that after printing the contents
+ with \Verb!end = ""! we are telling Python that after printing the contents
  of \Verb!word!, we want to print nothing at the end instead of going to a
  new line.}
-So we can improve our program a bit further:
+So we can improve \athena{the formatting of the output of our program
+on the screen:}
+% our program a bit further:
 
 \VerbatimInput[frame=single,label=Example]{src/Example3a.py}
 
@@ -327,7 +387,7 @@ It's possible to output more than one item with a single \verb!print! instructio
 For example, we could combine the last two lines of the above program into one:
 
 \begin{Verbatim}
-print('The word was ' + word)
+print("The word was " + word)
 \end{Verbatim}
 
 and the output would be exactly the same. The symbol ``\texttt{+}'' does not
@@ -361,8 +421,30 @@ Now please key in another: Jane
 And this one was Jane
 \end{Verbatim}
 
-
 \subsection*{Exercise A}
+
+\athena{
+For those of you who prefer a ``learning by doing'' approach,
+the University of Waterloo provides an interactive
+tutorial to programming in Python 3 with a similar structure to
+this booklet:
+\begin{center}
+\url{https://cscircles.cemc.uwaterloo.ca/}
+\end{center}
+This tutorial gives you further exercises and checks
+whether the output obtained from your solutions is correct.
+We will occasionally refer to exercises in this on-line
+tutorial.
+You are welcome to create an account if you wish to record your progress.
+However, as this booklet is designed for self-study, we will not
+provide any assistance for this system.\\
+\indent
+As your first exercise, read through Section ``0: Hello'' at the
+above link and attempt the exercises in your browser as you
+go along. The web page will provide you with direct feedback.
+}
+
+\subsection*{Exercise B}
 
 Now pause and see if you can write:
 \begin{enumerate}
@@ -401,20 +483,20 @@ There is another way to get a string into a box apart from using
 \verb!input()!.  We can write, for instance:
 
 \begin{Verbatim}
-    word = 'Some text'
+    word = "Some text"
 \end{Verbatim}
 
-This has the effect of putting the string `Some text' into the
+This has the effect of putting the string "Some text" into the
 \verb!word! box.  Whatever content was in \verb!word! before is obliterated; the
 new text replaces the old one. 
 
 In programming, this is called \emph{assignment}.  We say that the
-value `Some text' is
+value "Some text" is
 assigned to the variable \verb!word!, or that the variable \verb!word! takes the
-value `Some text'.  The ``\texttt{=}'' symbol is the assignment operator in Python.  We are not
-testing whether \verb!word! has the value `Some text' or not, nor are we stating that
-\verb!word! has the value `Some text'; we are \emph{giving} the value
-`Some text' to \verb!word!.
+value "Some text".  The ``\texttt{=}'' symbol is the assignment operator in Python.  We are not
+testing whether \verb!word! has the value "Some text" or not, nor are we stating that
+\verb!word! has the value "Some text"; we are \emph{giving} the value
+"Some text" to \verb!word!.
 
 % Unneeded. Probably should delete.
 %
@@ -429,18 +511,18 @@ testing whether \verb!word! has the value `Some text' or not, nor are we stating
 An assignment instruction such as this:
 
 \begin{Verbatim}
-    word = word + ' and some more'
+    word = word + " and some more"
 \end{Verbatim}
 
 looks a little strange at first but makes perfectly good sense.
 Let's suppose the current value of \verb!word! (the contents of the
-box) is `Some text'.
+box) is "Some text".
 The instruction says, ``Take the value of \verb!word!
-(`Some text'), add ` and some more'  to it (obtaining `Some text and some
-more') 
+("Some text"), add " and some more"  to it (obtaining "Some text and some
+more") 
 and put the result into \verb!word!''.
-So the effect is to put `Some text and some more' into \verb!word! in
-place of the earlier `Some text'.
+So the effect is to put "Some text and some more" into \verb!word! in
+place of the earlier "Some text".
 
 
 % We also say that the first time we put something into a variable \verb!foo!,
@@ -496,10 +578,10 @@ You can read from a variable only after it has been initialised.
 % so it is known as \emph{initialisation.}
 
 Finally a word about terminology.  I have used the word ``instruction''
-to refer to lines such as \verb!print(word)! and \verb!word = 'Some text'!.
+to refer to lines such as \verb!print(word)! and \verb!word = "Some text"!.
 It seems a natural word to use since we are giving the computer instructions.
-But the correct word is actually `statement'.  \verb!print(word)! is
-an output statement, and \verb!word = 'Hello'! is an assignment statement.
+But the correct word is actually ``statement''.  \verb!print(word)! is
+an output statement, and \verb!word = "Hello"! is an assignment statement.
 % The lines in which we tell the computer about the variables we intend to
 % use, such as \verb!String str! or \verb!String str = ""! are called
 % variable \emph{definitions}.  They are also referred to as 
@@ -507,12 +589,13 @@ an output statement, and \verb!word = 'Hello'! is an assignment statement.
 % find that you can have declarations which are not definitions, but the
 % ones in these introductory notes are both definitions and declarations.
 
-\subsection*{Exercise B}
+
+\subsection*{Exercise C}
 
 Now see if you can write a program in Python that takes
 two words from the keyboard and outputs one after the other on the same line. 
-E.g., if you keyed in `Humpty' and `Dumpty' 
-it would reply with `Humpty Dumpty' (note the space in between).
+E.g., if you keyed in ``Humpty'' and ``Dumpty'' 
+it would reply with ``Humpty Dumpty'' (note the space in between).
 A run of the program should look like this:
 
 \begin{Verbatim}
