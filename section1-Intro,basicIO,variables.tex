@@ -31,9 +31,56 @@ The questions on the test are similar in style to those in Section
   have been made available officially for free download. There are also
   interactive editions that can be used online, which will give you immediate
   feedback.}
+
+\subsection{\athenaa{Motivation}}
+
 %% Why should YOU want to write computer programs?
 \athena{Computing increasingly permeates everyday life,
 from the apps on our phones to the social networks that connect us.}
+\athenaa{At the same time, computing is a general tool that we can use
+  for solving real-world problems.}
+For you to get a computer to do something, you have to tell it what you want it
+to do.  You give it a series of instructions in the form of a \emph{program}.
+\athenaa{% in a principled way via computer programs.
+  The computer then helps us by carrying out these instructions
+  very fast, much faster and more reliably than a human.
+  In this sense, a program is a description of how to carry out a process
+  automatically.
+%This can automate processes.
+}
+
+\athenaa{Often programs that others have written will do the job.
+  However, we don't want to be limited
+  to the programs that other people have created.
+  We want to tailor our program to the needs of the problem that
+  we have at hand.
+  % We want to be able
+  % to tell the computer precisely what we want our program to achieve.
+%what exactly our program should do.
+  Writing programs is about expressing our ideas for solving a problem
+  clearly and unambiguously. This is a skill increasingly sought
+  also outside of the software industry.
+  The programs that you can write
+%we have written
+  may then help solve problems in areas such as
+  business,  data science, engineering, and medicine.
+}
+
+\athenaa{As a
+% first
+  pointer to
+% optional
+  further reading for this part, you can find
+  an extended description of the purpose
+  %setting
+  and use of writing computer programs
+  in \cite[Chapter~1]{pfe} and \cite[Chapter~1]{tp}.
+  % Similarly, later chapters of these textbooks provide additional
+  % details and extensions for material provided in the following in the present
+  % text.
+  }
+
+
 % Thus, there is a need for people to
 % % have the skill of not just using
 % %be able to
@@ -43,17 +90,15 @@ from the apps on our phones to the social networks that connect us.}
 % to be empowered to create their own.
 % %  and modify them, and ultimately
 % % to shape the future of our society.
-To get a computer to do something, you have to tell it what you want it
-to do.  You give it a series of instructions in the form of a \emph{program}.
+\subsection{\athenaa{Programming language}}
 You write a program in a \emph{programming language}.
-Many programming languages have been devised \athena{over the decades};
-well-known ones include
-Fortran, BASIC, Cobol, Algol, Lisp, Ada, C++, Python, Ruby, Scala, and Java.
-
+Many programming languages have been devised \athena{over the decades}.
+% ;
+% well-known ones include
+% Fortran, BASIC, Cobol, Algol, Lisp, Ada, C++, Python, Ruby, Scala, and Java.
 % The language we will use in this document is named \emph{Groovy}, and
 % it is \emph{very similar to the Java programming language but with a
 % simplified syntax} that better fits the purposes of this introduction. 
-
 The language we will use in this document is named \emph{Python}.
 More precisely, we are using version 3 of the Python language.
 \athena{Python hits a sweet spot: it makes writing simple programs easy
@@ -63,21 +108,23 @@ Programming languages vary a lot, but
 an instruction in a typical programming language might contain
 some English words (such as \verb!while! or \verb!return!), perhaps a mathematical
 expression (such as \verb!x + 2!) and some punctuation marks used in a special way.
-The following three lines are in BASIC, Cobol and C++ respectively:
-\begin{Verbatim}
-      FOR I% = 1 TO 100 STEP 5 DO
+% The following three lines are in BASIC, Cobol and C++ respectively:
+% \begin{Verbatim}
+%       FOR I% = 1 TO 100 STEP 5 DO
 
-      PERFORM RECORD-TRANSACTION UNTIL ALL-DONE = "T"
+%       PERFORM RECORD-TRANSACTION UNTIL ALL-DONE = "T"
 
-      if (x > 100) cout << "Big"; else cout << "Small";
-\end{Verbatim}
+%       if (x > 100) cout << "Big"; else cout << "Small";
+% \end{Verbatim}
 
 Programs can vary in length from a few lines to thousands of lines.
 Here is a complete, short program written in Python:
 
+%\pagebreak
+
+
 \VerbatimInput[frame=single,label=Example]{src/Example1.py}
 
-\pagebreak
 
 When you write a program, you have to be very careful to keep to the
 syntax of the programming language, i.e., to the grammar rules of the language.
